@@ -1,0 +1,6 @@
+CREATE TABLE IF NOT EXISTS Product_Manufacturers(
+   Product_ID INTEGER  NOT NULL PRIMARY KEY
+  ,Name       VARCHAR(30) NOT NULL
+  ,Type       VARCHAR(70) NOT NULL
+  ,Coupons    INTEGER  NOT NULL
+);

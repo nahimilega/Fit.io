@@ -1,0 +1,8 @@
+CREATE TABLE IF NOT EXISTS COUPONS(
+   Coupon_ID  INTEGER  NOT NULL PRIMARY KEY
+  ,Valid_Date DATE  NOT NULL
+  ,Type       VARCHAR(70) NOT NULL
+  ,Details    VARCHAR(17)
+  ,Product_ID INTEGER  NOT NULL
+  ,FOREIGN KEY (Product_ID) REFERENCES Product_Manufacturers(Product_ID)
+);
