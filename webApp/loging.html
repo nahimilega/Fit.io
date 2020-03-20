@@ -15,22 +15,10 @@
     <script type="text/javascript">
 
 
-    // function postData(input) {
-    //     $.ajax({
-    //         type: "POST",
-    //         url: "http://0.0.0.0:5000/login",
-    //         data: { param: input },
-    //         success: callbackFunc
-    //     });
-    // }
+    // Execute the python server side script before running this html
 
-    // function callbackFunc(response) {
-    //     // do something with the response
-    //     console.log(response);
-    // }
 
-    // postData('data to process');
-
+    
     function runPyScript(input){
         var jqXHR = $.ajax({
             type: "POST",
