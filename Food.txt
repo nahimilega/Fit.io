@@ -1,0 +1,352 @@
+﻿
+
+/* CREATE TABLE */
+CREATE TABLE Food(
+Name VARCHAR(100),
+Calorie DOUBLE,
+Cuisine VARCHAR(100),
+Recipe VARCHAR(100)
+);
+
+/* INSERT QUERY NO: 1 */
+INSERT INTO Food(Name, Calorie, Cuisine, Recipe)
+VALUES
+(
+'"Shahi Paneer "', 310, 'Indian', 'https://iiitd.ac.in/shahi_paneer'
+);
+
+/* INSERT QUERY NO: 2 */
+INSERT INTO Food(Name, Calorie, Cuisine, Recipe)
+VALUES
+(
+'Butter Naan', 50, 'Indian', 'https://iiitd.ac.in/butter_naan'
+);
+
+/* INSERT QUERY NO: 3 */
+INSERT INTO Food(Name, Calorie, Cuisine, Recipe)
+VALUES
+(
+'"Palak Paneer "', 270, 'Indian', 'https://iiitd.ac.in/palak_paneer'
+);
+
+/* INSERT QUERY NO: 4 */
+INSERT INTO Food(Name, Calorie, Cuisine, Recipe)
+VALUES
+(
+'"Dosa "', 200, 'Indian', 'https://iiitd.ac.in/dosa'
+);
+
+/* INSERT QUERY NO: 5 */
+INSERT INTO Food(Name, Calorie, Cuisine, Recipe)
+VALUES
+(
+'Idli', 150, 'Indian', 'https://iiitd.ac.in/idli'
+);
+
+/* INSERT QUERY NO: 6 */
+INSERT INTO Food(Name, Calorie, Cuisine, Recipe)
+VALUES
+(
+'Uttapam', 195, 'Indian', 'https://iiitd.ac.in/vada'
+);
+
+/* INSERT QUERY NO: 7 */
+INSERT INTO Food(Name, Calorie, Cuisine, Recipe)
+VALUES
+(
+'Vada', 200, 'Indian', 'https://iiitd.ac.in/uttapam'
+);
+
+/* INSERT QUERY NO: 8 */
+INSERT INTO Food(Name, Calorie, Cuisine, Recipe)
+VALUES
+(
+'"Aloo Parantha "', 225, 'Indian', 'https://iiitd.ac.in/aloo_parantha'
+);
+
+/* INSERT QUERY NO: 9 */
+INSERT INTO Food(Name, Calorie, Cuisine, Recipe)
+VALUES
+(
+'Paneer Parantha', 228, 'Indian', 'https://iiitd.ac.in/paneer_parantha'
+);
+
+/* INSERT QUERY NO: 10 */
+INSERT INTO Food(Name, Calorie, Cuisine, Recipe)
+VALUES
+(
+'"Mix Parantha "', 250, 'Indian', 'https://iiitd.ac.in/mix_parantha'
+);
+
+/* INSERT QUERY NO: 11 */
+INSERT INTO Food(Name, Calorie, Cuisine, Recipe)
+VALUES
+(
+'Pyaaz Parantha', 200, 'Indian', 'https://iiitd.ac.in/pyaaz_parantha'
+);
+
+/* INSERT QUERY NO: 12 */
+INSERT INTO Food(Name, Calorie, Cuisine, Recipe)
+VALUES
+(
+'"Aloo Matha "', 154, 'Indian', 'https://iiitd.ac.in/aloo_matha'
+);
+
+/* INSERT QUERY NO: 13 */
+INSERT INTO Food(Name, Calorie, Cuisine, Recipe)
+VALUES
+(
+'Jalebi', 300, 'Indian', 'https://iiitd.ac.in/jalebi'
+);
+
+/* INSERT QUERY NO: 14 */
+INSERT INTO Food(Name, Calorie, Cuisine, Recipe)
+VALUES
+(
+'Kheer', 310, 'Indian', 'https://iiitd.ac.in/kheer'
+);
+
+/* INSERT QUERY NO: 15 */
+INSERT INTO Food(Name, Calorie, Cuisine, Recipe)
+VALUES
+(
+'Chole Bhature', 280, 'Indian', 'https://iiitd.ac.in/chole_bhature'
+);
+
+/* INSERT QUERY NO: 16 */
+INSERT INTO Food(Name, Calorie, Cuisine, Recipe)
+VALUES
+(
+'"Samosa "', 123, 'Indian', 'https://iiitd.ac.in/samosa'
+);
+
+/* INSERT QUERY NO: 17 */
+INSERT INTO Food(Name, Calorie, Cuisine, Recipe)
+VALUES
+(
+'Aloo Gobi', 150, 'Indian', 'https://iiitd.ac.in/aloo_gobi'
+);
+
+/* INSERT QUERY NO: 18 */
+INSERT INTO Food(Name, Calorie, Cuisine, Recipe)
+VALUES
+(
+'"Matar Paneer "', 280, 'Indian', 'https://iiitd.ac.in/matar_paneer'
+);
+
+/* INSERT QUERY NO: 19 */
+INSERT INTO Food(Name, Calorie, Cuisine, Recipe)
+VALUES
+(
+'"Dum Aloo "', 300, 'Indian', 'https://iiitd.ac.in/dum_aloo'
+);
+
+/* INSERT QUERY NO: 20 */
+INSERT INTO Food(Name, Calorie, Cuisine, Recipe)
+VALUES
+(
+'"Pizza "', 154, 'Italian', 'https://iiitd.ac.in/pizza'
+);
+
+/* INSERT QUERY NO: 21 */
+INSERT INTO Food(Name, Calorie, Cuisine, Recipe)
+VALUES
+(
+'Bottarga', 300, 'Italian', 'https://iiitd.ac.in/bottarga'
+);
+
+/* INSERT QUERY NO: 22 */
+INSERT INTO Food(Name, Calorie, Cuisine, Recipe)
+VALUES
+(
+'Lasgna', 310, 'Italian', 'https://iiitd.ac.in/lasgna'
+);
+
+/* INSERT QUERY NO: 23 */
+INSERT INTO Food(Name, Calorie, Cuisine, Recipe)
+VALUES
+(
+'" Polenta"', 280, 'Italian', '"https://iiitd.ac.in/polento "'
+);
+
+/* INSERT QUERY NO: 24 */
+INSERT INTO Food(Name, Calorie, Cuisine, Recipe)
+VALUES
+(
+'Risotto', 123, 'Italian', 'https://iiitd.ac.in/risotto'
+);
+
+/* INSERT QUERY NO: 25 */
+INSERT INTO Food(Name, Calorie, Cuisine, Recipe)
+VALUES
+(
+'Carbonara', 150, 'Italian', 'https://iiitd.ac.in/muttonchop'
+);
+
+/* INSERT QUERY NO: 26 */
+INSERT INTO Food(Name, Calorie, Cuisine, Recipe)
+VALUES
+(
+'Mutton Chops Curry Recipe-How to make mutton chops curry', 280, 'Indian', 'https://iiitd.ac.in/spicy'
+);
+
+/* INSERT QUERY NO: 27 */
+INSERT INTO Food(Name, Calorie, Cuisine, Recipe)
+VALUES
+(
+'Spicy mixture ~ South Indian Trail mix | Diwali', 300, 'Indian', 'https://iiitd.ac.in/reamue'
+);
+
+/* INSERT QUERY NO: 28 */
+INSERT INTO Food(Name, Calorie, Cuisine, Recipe)
+VALUES
+(
+'Creamy Chicken Tikka Masala', 154, 'Indian', 'https://iiitd.ac.in/tandoori'
+);
+
+/* INSERT QUERY NO: 29 */
+INSERT INTO Food(Name, Calorie, Cuisine, Recipe)
+VALUES
+(
+'Tandoori Turkey Breast', 300, 'Indian', '"https://iiitd.ac.in/turkey "'
+);
+
+/* INSERT QUERY NO: 30 */
+INSERT INTO Food(Name, Calorie, Cuisine, Recipe)
+VALUES
+(
+'Keema Paratha Recipe-Stuffed keema paratha', 310, 'Indian', '"https://iiitd.ac.in/keema "'
+);
+
+/* INSERT QUERY NO: 31 */
+INSERT INTO Food(Name, Calorie, Cuisine, Recipe)
+VALUES
+(
+'Slow-Cooker Coconut Chicken Tikka Masala', 280, 'Indian', '"https://iiitd.ac.in/slowcooker "'
+);
+
+/* INSERT QUERY NO: 32 */
+INSERT INTO Food(Name, Calorie, Cuisine, Recipe)
+VALUES
+(
+'"Dahi Chicken Curry', 0, '123', 'Indian'
+);
+
+/* INSERT QUERY NO: 33 */
+INSERT INTO Food(Name, Calorie, Cuisine, Recipe)
+VALUES
+(
+'Homemade Tikka Masala', 150, 'Indian', '"https://iiitd.ac.in/tikka "'
+);
+
+/* INSERT QUERY NO: 34 */
+INSERT INTO Food(Name, Calorie, Cuisine, Recipe)
+VALUES
+(
+'Butter Chicken', 280, 'Indian', '"https://iiitd.ac.in/chicken "'
+);
+
+/* INSERT QUERY NO: 35 */
+INSERT INTO Food(Name, Calorie, Cuisine, Recipe)
+VALUES
+(
+'Indian Style Sheekh Kabab', 300, 'Indian', '"https://iiitd.ac.in/seekh "'
+);
+
+/* INSERT QUERY NO: 36 */
+INSERT INTO Food(Name, Calorie, Cuisine, Recipe)
+VALUES
+(
+'Grilled Tandoori Chicken', 154, 'Indian', '"https://iiitd.ac.in/grilled "'
+);
+
+/* INSERT QUERY NO: 37 */
+INSERT INTO Food(Name, Calorie, Cuisine, Recipe)
+VALUES
+(
+'Boneless Tandoori Chicken recipe in oven-how to make tandoori chicken', 300, 'Indian', '"https://iiitd.ac.in/boneless "'
+);
+
+/* INSERT QUERY NO: 38 */
+INSERT INTO Food(Name, Calorie, Cuisine, Recipe)
+VALUES
+(
+'Malpua -Sweet Indian Pancakes', 310, 'Indian', '"https://iiitd.ac.in/malpua "'
+);
+
+/* INSERT QUERY NO: 39 */
+INSERT INTO Food(Name, Calorie, Cuisine, Recipe)
+VALUES
+(
+'Butter Chicken for the Slow Cooker', 280, 'Indian', '"https://iiitd.ac.in/slow "'
+);
+
+/* INSERT QUERY NO: 40 */
+INSERT INTO Food(Name, Calorie, Cuisine, Recipe)
+VALUES
+(
+'Easy Indian Curry', 123, 'Indian', '"https://iiitd.ac.in/curry "'
+);
+
+/* INSERT QUERY NO: 41 */
+INSERT INTO Food(Name, Calorie, Cuisine, Recipe)
+VALUES
+(
+'Indian Style Baked Tofu', 150, 'Indian', '"https://iiitd.ac.in/tofu "'
+);
+
+/* INSERT QUERY NO: 42 */
+INSERT INTO Food(Name, Calorie, Cuisine, Recipe)
+VALUES
+(
+'Indian Naan', 280, 'Indian', '"https://iiitd.ac.in/naan "'
+);
+
+/* INSERT QUERY NO: 43 */
+INSERT INTO Food(Name, Calorie, Cuisine, Recipe)
+VALUES
+(
+'Hyderabadi Chicken Biryani', 300, 'Indian', '"https://iiitd.ac.in/biryani "'
+);
+
+/* INSERT QUERY NO: 44 */
+INSERT INTO Food(Name, Calorie, Cuisine, Recipe)
+VALUES
+(
+'Indian Appetizer Cabbage Pakora', 154, 'Indian', '"https://iiitd.ac.in/pakora "'
+);
+
+/* INSERT QUERY NO: 45 */
+INSERT INTO Food(Name, Calorie, Cuisine, Recipe)
+VALUES
+(
+'Kokub’s Mango Chutney from Pakistan', 300, 'Indian', '"https://iiitd.ac.in/kokub\'s "'
+);
+
+/* INSERT QUERY NO: 46 */
+INSERT INTO Food(Name, Calorie, Cuisine, Recipe)
+VALUES
+(
+'Aromatic Blackeye Bean Curry', 310, 'Indian', '"https://iiitd.ac.in/bean "'
+);
+
+/* INSERT QUERY NO: 47 */
+INSERT INTO Food(Name, Calorie, Cuisine, Recipe)
+VALUES
+(
+'Biryani-Inspired Autumn Vegetable Rice', 280, 'Indian', '"https://iiitd.ac.in/rice "'
+);
+
+/* INSERT QUERY NO: 48 */
+INSERT INTO Food(Name, Calorie, Cuisine, Recipe)
+VALUES
+(
+'Indian Spiced Cauliflower & Potatoes', 123, 'Indian', '"https://iiitd.ac.in/cauliflower "'
+);
+
+/* INSERT QUERY NO: 49 */
+INSERT INTO Food(Name, Calorie, Cuisine, Recipe)
+VALUES
+(
+'Butter Chicken/ Murgh Makhani', 277, 'Indian', '"https://iiitd.ac.in/murgh "'
+);
