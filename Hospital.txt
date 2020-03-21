@@ -1,0 +1,360 @@
+﻿
+
+/* CREATE TABLE */
+CREATE TABLE Hospital(
+Hospital_Id_ DOUBLE,
+Name VARCHAR(100),
+Location VARCHAR(100),
+At_Risk DOUBLE,
+Specialities VARCHAR(100)
+);
+
+/* INSERT QUERY NO: 1 */
+INSERT INTO Hospital(Hospital_Id_, Name, Location, At_Risk, Specialities)
+VALUES
+(
+1, 'Apollo', 'Maharastra', 1, '"Neurosurgery'
+);
+
+/* INSERT QUERY NO: 2 */
+INSERT INTO Hospital(Hospital_Id_, Name, Location, At_Risk, Specialities)
+VALUES
+(
+2, 'Lady Hardinge', 'Jharkhand', 0, '"Pediatrics'
+);
+
+/* INSERT QUERY NO: 3 */
+INSERT INTO Hospital(Hospital_Id_, Name, Location, At_Risk, Specialities)
+VALUES
+(
+3, 'RML', 'Tamil Nadu', 1, '"Nephrology'
+);
+
+/* INSERT QUERY NO: 4 */
+INSERT INTO Hospital(Hospital_Id_, Name, Location, At_Risk, Specialities)
+VALUES
+(
+4, 'SIr Ganga Ram', 'Andhra Pradesh', 1, '" Cardiology'
+);
+
+/* INSERT QUERY NO: 5 */
+INSERT INTO Hospital(Hospital_Id_, Name, Location, At_Risk, Specialities)
+VALUES
+(
+5, '"AIIMS "', 'Madhya Pradesh', 1, '" Allergy'
+);
+
+/* INSERT QUERY NO: 6 */
+INSERT INTO Hospital(Hospital_Id_, Name, Location, At_Risk, Specialities)
+VALUES
+(
+6, 'ABC', 'Gujarat', 1, '"Psychiatry'
+);
+
+/* INSERT QUERY NO: 7 */
+INSERT INTO Hospital(Hospital_Id_, Name, Location, At_Risk, Specialities)
+VALUES
+(
+7, 'Lance Spears', 'Uttar Pradesh', 0, '"Surgical Oncology'
+);
+
+/* INSERT QUERY NO: 8 */
+INSERT INTO Hospital(Hospital_Id_, Name, Location, At_Risk, Specialities)
+VALUES
+(
+8, 'Wayne York', 'Jharkhand', 0, '" Vascular Surgery'
+);
+
+/* INSERT QUERY NO: 9 */
+INSERT INTO Hospital(Hospital_Id_, Name, Location, At_Risk, Specialities)
+VALUES
+(
+9, 'Louis E. Mclaughlin', 'Maharastra', 0, '"Rheumatology'
+);
+
+/* INSERT QUERY NO: 10 */
+INSERT INTO Hospital(Hospital_Id_, Name, Location, At_Risk, Specialities)
+VALUES
+(
+10, 'Althea I. Hayes', 'Uttar Pradesh', 1, '"Bariatric Medicine/Surgery'
+);
+
+/* INSERT QUERY NO: 11 */
+INSERT INTO Hospital(Hospital_Id_, Name, Location, At_Risk, Specialities)
+VALUES
+(
+11, 'Jemima C. Decker', 'Karnataka', 1, '"Electrophysiology'
+);
+
+/* INSERT QUERY NO: 12 */
+INSERT INTO Hospital(Hospital_Id_, Name, Location, At_Risk, Specialities)
+VALUES
+(
+12, 'Blair Webb', 'Rajasthan', 1, '" Cardiology'
+);
+
+/* INSERT QUERY NO: 13 */
+INSERT INTO Hospital(Hospital_Id_, Name, Location, At_Risk, Specialities)
+VALUES
+(
+13, 'Kaye C. Hoffman', 'Tamil Nadu', 1, '" Allergy'
+);
+
+/* INSERT QUERY NO: 14 */
+INSERT INTO Hospital(Hospital_Id_, Name, Location, At_Risk, Specialities)
+VALUES
+(
+14, 'Yvonne Mcpherson', 'West Bengal', 1, '" Vascular Surgery'
+);
+
+/* INSERT QUERY NO: 15 */
+INSERT INTO Hospital(Hospital_Id_, Name, Location, At_Risk, Specialities)
+VALUES
+(
+15, 'Wallace Munoz', 'West Bengal', 1, '"Rheumatology'
+);
+
+/* INSERT QUERY NO: 16 */
+INSERT INTO Hospital(Hospital_Id_, Name, Location, At_Risk, Specialities)
+VALUES
+(
+16, 'Frances C. Good', 'Kerala', 1, '"Bariatric Medicine/Surgery'
+);
+
+/* INSERT QUERY NO: 17 */
+INSERT INTO Hospital(Hospital_Id_, Name, Location, At_Risk, Specialities)
+VALUES
+(
+17, 'Chanda Rosa', 'Uttar Pradesh', 1, '"Nephrology'
+);
+
+/* INSERT QUERY NO: 18 */
+INSERT INTO Hospital(Hospital_Id_, Name, Location, At_Risk, Specialities)
+VALUES
+(
+18, 'Keefe F. Vance', 'Rajasthan', 1, '" Cardiology'
+);
+
+/* INSERT QUERY NO: 19 */
+INSERT INTO Hospital(Hospital_Id_, Name, Location, At_Risk, Specialities)
+VALUES
+(
+19, 'Wang Mcneil', 'Delhi', 1, '" Cardiology'
+);
+
+/* INSERT QUERY NO: 20 */
+INSERT INTO Hospital(Hospital_Id_, Name, Location, At_Risk, Specialities)
+VALUES
+(
+20, 'Byron Owen', 'Maharastra', 1, '" Allergy'
+);
+
+/* INSERT QUERY NO: 21 */
+INSERT INTO Hospital(Hospital_Id_, Name, Location, At_Risk, Specialities)
+VALUES
+(
+21, 'Francis G. Walter', 'Gujarat', 0, '"Psychiatry'
+);
+
+/* INSERT QUERY NO: 22 */
+INSERT INTO Hospital(Hospital_Id_, Name, Location, At_Risk, Specialities)
+VALUES
+(
+22, 'Hayley Whitney', 'Karnataka', 1, '"Nephrology'
+);
+
+/* INSERT QUERY NO: 23 */
+INSERT INTO Hospital(Hospital_Id_, Name, Location, At_Risk, Specialities)
+VALUES
+(
+23, 'Catherine Blackburn', 'Uttar Pradesh', 0, '" Cardiology'
+);
+
+/* INSERT QUERY NO: 24 */
+INSERT INTO Hospital(Hospital_Id_, Name, Location, At_Risk, Specialities)
+VALUES
+(
+24, 'Vincent C. Chambers', 'Andhra Pradesh', 0, '"Surgical Oncology'
+);
+
+/* INSERT QUERY NO: 25 */
+INSERT INTO Hospital(Hospital_Id_, Name, Location, At_Risk, Specialities)
+VALUES
+(
+25, 'Malik Schwartz', 'Gujarat', 1, '" Vascular Surgery'
+);
+
+/* INSERT QUERY NO: 26 */
+INSERT INTO Hospital(Hospital_Id_, Name, Location, At_Risk, Specialities)
+VALUES
+(
+26, 'Clarke L. Robinson', 'Uttar Pradesh', 1, '"Rheumatology'
+);
+
+/* INSERT QUERY NO: 27 */
+INSERT INTO Hospital(Hospital_Id_, Name, Location, At_Risk, Specialities)
+VALUES
+(
+27, 'Lysandra Gregory', 'Bihar', 1, '"Bariatric Medicine/Surgery'
+);
+
+/* INSERT QUERY NO: 28 */
+INSERT INTO Hospital(Hospital_Id_, Name, Location, At_Risk, Specialities)
+VALUES
+(
+28, 'Georgia Roy', 'Odisha', 1, '"Electrophysiology'
+);
+
+/* INSERT QUERY NO: 29 */
+INSERT INTO Hospital(Hospital_Id_, Name, Location, At_Risk, Specialities)
+VALUES
+(
+29, 'Kendall S. Chan', 'Jammu and Kashmir', 0, '"Psychiatry'
+);
+
+/* INSERT QUERY NO: 30 */
+INSERT INTO Hospital(Hospital_Id_, Name, Location, At_Risk, Specialities)
+VALUES
+(
+30, 'Owen O. Byrd', 'Jharkhand', 0, '"Surgical Oncology'
+);
+
+/* INSERT QUERY NO: 31 */
+INSERT INTO Hospital(Hospital_Id_, Name, Location, At_Risk, Specialities)
+VALUES
+(
+31, 'Xanthus W. Morton', 'Jammu and Kashmir', 1, '" Vascular Surgery'
+);
+
+/* INSERT QUERY NO: 32 */
+INSERT INTO Hospital(Hospital_Id_, Name, Location, At_Risk, Specialities)
+VALUES
+(
+32, 'Addison Sawyer', 'Uttar Pradesh', 0, '"Rheumatology'
+);
+
+/* INSERT QUERY NO: 33 */
+INSERT INTO Hospital(Hospital_Id_, Name, Location, At_Risk, Specialities)
+VALUES
+(
+33, 'Ginger Z. Riddle', 'Kerala', 0, '" Cardiology'
+);
+
+/* INSERT QUERY NO: 34 */
+INSERT INTO Hospital(Hospital_Id_, Name, Location, At_Risk, Specialities)
+VALUES
+(
+34, 'Burke Burris', 'Bihar', 0, '" Allergy'
+);
+
+/* INSERT QUERY NO: 35 */
+INSERT INTO Hospital(Hospital_Id_, Name, Location, At_Risk, Specialities)
+VALUES
+(
+35, 'Megan V. Gross', 'Uttar Pradesh', 1, '"Psychiatry'
+);
+
+/* INSERT QUERY NO: 36 */
+INSERT INTO Hospital(Hospital_Id_, Name, Location, At_Risk, Specialities)
+VALUES
+(
+36, 'Unity Case', 'Gujarat', 1, '"Surgical Oncology'
+);
+
+/* INSERT QUERY NO: 37 */
+INSERT INTO Hospital(Hospital_Id_, Name, Location, At_Risk, Specialities)
+VALUES
+(
+37, 'Andrew Pruitt', 'West Bengal', 1, '" Vascular Surgery'
+);
+
+/* INSERT QUERY NO: 38 */
+INSERT INTO Hospital(Hospital_Id_, Name, Location, At_Risk, Specialities)
+VALUES
+(
+38, 'Cullen U. Jacobs', 'Himachal Pradesh', 1, '"Rheumatology'
+);
+
+/* INSERT QUERY NO: 39 */
+INSERT INTO Hospital(Hospital_Id_, Name, Location, At_Risk, Specialities)
+VALUES
+(
+39, '"TATA "', 'West Bengal', 1, '"Psychiatry'
+);
+
+/* INSERT QUERY NO: 40 */
+INSERT INTO Hospital(Hospital_Id_, Name, Location, At_Risk, Specialities)
+VALUES
+(
+40, '"XYZ "', 'West Bengal', 1, '"Neurosurgery'
+);
+
+/* INSERT QUERY NO: 41 */
+INSERT INTO Hospital(Hospital_Id_, Name, Location, At_Risk, Specialities)
+VALUES
+(
+41, '"SHARMA "', 'Uttar Pradesh', 1, '"Pediatrics'
+);
+
+/* INSERT QUERY NO: 42 */
+INSERT INTO Hospital(Hospital_Id_, Name, Location, At_Risk, Specialities)
+VALUES
+(
+42, 'AGGARWAL CLINIC', 'Madhya Pradesh', 1, '"Nephrology'
+);
+
+/* INSERT QUERY NO: 43 */
+INSERT INTO Hospital(Hospital_Id_, Name, Location, At_Risk, Specialities)
+VALUES
+(
+43, '"GUPTA  CLINIC"', 'Madhya Pradesh', 1, '" Cardiology'
+);
+
+/* INSERT QUERY NO: 44 */
+INSERT INTO Hospital(Hospital_Id_, Name, Location, At_Risk, Specialities)
+VALUES
+(
+44, 'JAYPEE', 'Rajasthan', 1, '" Allergy'
+);
+
+/* INSERT QUERY NO: 45 */
+INSERT INTO Hospital(Hospital_Id_, Name, Location, At_Risk, Specialities)
+VALUES
+(
+45, 'MAULANA AZAD', 'Gujarat', 1, '"Psychiatry'
+);
+
+/* INSERT QUERY NO: 46 */
+INSERT INTO Hospital(Hospital_Id_, Name, Location, At_Risk, Specialities)
+VALUES
+(
+46, 'PGIR', 'Andhra Pradesh', 1, '"Surgical Oncology'
+);
+
+/* INSERT QUERY NO: 47 */
+INSERT INTO Hospital(Hospital_Id_, Name, Location, At_Risk, Specialities)
+VALUES
+(
+47, 'JANKI DEVI', 'Madhya Pradesh', 1, '" Vascular Surgery'
+);
+
+/* INSERT QUERY NO: 48 */
+INSERT INTO Hospital(Hospital_Id_, Name, Location, At_Risk, Specialities)
+VALUES
+(
+48, 'GABA HOSPITAL', 'Delhi', 1, '"Rheumatology'
+);
+
+/* INSERT QUERY NO: 49 */
+INSERT INTO Hospital(Hospital_Id_, Name, Location, At_Risk, Specialities)
+VALUES
+(
+49, '"JAY HOSPITAL "', 'Odisha', 1, '"Bariatric Medicine/Surgery'
+);
+
+/* INSERT QUERY NO: 50 */
+INSERT INTO Hospital(Hospital_Id_, Name, Location, At_Risk, Specialities)
+VALUES
+(
+50, '"AIIMS "', 'Gujarat', 1, '"Electrophysiology'
+);
