@@ -1,0 +1,184 @@
+/* Showing results for Possible_Clients_of_Insurance_Companies.xlsx */
+
+/* CREATE TABLE */
+CREATE TABLE Possible_Clients_of_Insurance_Companies(
+P_ID int NOT NULL,
+Insurance_ID int NOT NULL,
+Possible_Clients int NOT NULL,
+primary key(P_ID)
+);
+
+/* INSERT QUERY NO: 1 */
+INSERT INTO Possible_Clients_of_Insurance_Companies(P_ID, Insurance_ID, Possible_Clients)
+VALUES
+(
+1, 2, 22
+);
+
+/* INSERT QUERY NO: 2 */
+INSERT INTO Possible_Clients_of_Insurance_Companies(P_ID, Insurance_ID, Possible_Clients)
+VALUES
+(
+2, 3, 30
+);
+
+/* INSERT QUERY NO: 3 */
+INSERT INTO Possible_Clients_of_Insurance_Companies(P_ID, Insurance_ID, Possible_Clients)
+VALUES
+(
+3, 3, 3
+);
+
+/* INSERT QUERY NO: 4 */
+INSERT INTO Possible_Clients_of_Insurance_Companies(P_ID, Insurance_ID, Possible_Clients)
+VALUES
+(
+4, 5, 11
+);
+
+/* INSERT QUERY NO: 5 */
+INSERT INTO Possible_Clients_of_Insurance_Companies(P_ID, Insurance_ID, Possible_Clients)
+VALUES
+(
+5, 6, 50
+);
+
+/* INSERT QUERY NO: 6 */
+INSERT INTO Possible_Clients_of_Insurance_Companies(P_ID, Insurance_ID, Possible_Clients)
+VALUES
+(
+6, 6, 7
+);
+
+/* INSERT QUERY NO: 7 */
+INSERT INTO Possible_Clients_of_Insurance_Companies(P_ID, Insurance_ID, Possible_Clients)
+VALUES
+(
+7, 7, 35
+);
+
+/* INSERT QUERY NO: 8 */
+INSERT INTO Possible_Clients_of_Insurance_Companies(P_ID, Insurance_ID, Possible_Clients)
+VALUES
+(
+8, 7, 50
+);
+
+/* INSERT QUERY NO: 9 */
+INSERT INTO Possible_Clients_of_Insurance_Companies(P_ID, Insurance_ID, Possible_Clients)
+VALUES
+(
+9, 7, 17
+);
+
+/* INSERT QUERY NO: 10 */
+INSERT INTO Possible_Clients_of_Insurance_Companies(P_ID, Insurance_ID, Possible_Clients)
+VALUES
+(
+10, 10, 5
+);
+
+/* INSERT QUERY NO: 11 */
+INSERT INTO Possible_Clients_of_Insurance_Companies(P_ID, Insurance_ID, Possible_Clients)
+VALUES
+(
+11, 12, 15
+);
+
+/* INSERT QUERY NO: 12 */
+INSERT INTO Possible_Clients_of_Insurance_Companies(P_ID, Insurance_ID, Possible_Clients)
+VALUES
+(
+12, 12, 25
+);
+
+/* INSERT QUERY NO: 13 */
+INSERT INTO Possible_Clients_of_Insurance_Companies(P_ID, Insurance_ID, Possible_Clients)
+VALUES
+(
+13, 15, 33
+);
+
+/* INSERT QUERY NO: 14 */
+INSERT INTO Possible_Clients_of_Insurance_Companies(P_ID, Insurance_ID, Possible_Clients)
+VALUES
+(
+14, 17, 37
+);
+
+/* INSERT QUERY NO: 15 */
+INSERT INTO Possible_Clients_of_Insurance_Companies(P_ID, Insurance_ID, Possible_Clients)
+VALUES
+(
+15, 17, 14
+);
+
+/* INSERT QUERY NO: 16 */
+INSERT INTO Possible_Clients_of_Insurance_Companies(P_ID, Insurance_ID, Possible_Clients)
+VALUES
+(
+16, 19, 49
+);
+
+/* INSERT QUERY NO: 17 */
+INSERT INTO Possible_Clients_of_Insurance_Companies(P_ID, Insurance_ID, Possible_Clients)
+VALUES
+(
+17, 22, 3
+);
+
+/* INSERT QUERY NO: 18 */
+INSERT INTO Possible_Clients_of_Insurance_Companies(P_ID, Insurance_ID, Possible_Clients)
+VALUES
+(
+18, 24, 8
+);
+
+/* INSERT QUERY NO: 19 */
+INSERT INTO Possible_Clients_of_Insurance_Companies(P_ID, Insurance_ID, Possible_Clients)
+VALUES
+(
+19, 25, 26
+);
+
+/* INSERT QUERY NO: 20 */
+INSERT INTO Possible_Clients_of_Insurance_Companies(P_ID, Insurance_ID, Possible_Clients)
+VALUES
+(
+20, 25, 41
+);
+
+/* INSERT QUERY NO: 21 */
+INSERT INTO Possible_Clients_of_Insurance_Companies(P_ID, Insurance_ID, Possible_Clients)
+VALUES
+(
+21, 28, 5
+);
+
+/* INSERT QUERY NO: 22 */
+INSERT INTO Possible_Clients_of_Insurance_Companies(P_ID, Insurance_ID, Possible_Clients)
+VALUES
+(
+22, 30, 4
+);
+
+/* INSERT QUERY NO: 23 */
+INSERT INTO Possible_Clients_of_Insurance_Companies(P_ID, Insurance_ID, Possible_Clients)
+VALUES
+(
+23, 32, 16
+);
+
+/* INSERT QUERY NO: 24 */
+INSERT INTO Possible_Clients_of_Insurance_Companies(P_ID, Insurance_ID, Possible_Clients)
+VALUES
+(
+24, 33, 2
+);
+
+/* INSERT QUERY NO: 25 */
+INSERT INTO Possible_Clients_of_Insurance_Companies(P_ID, Insurance_ID, Possible_Clients)
+VALUES
+(
+25, 33, 21
+);

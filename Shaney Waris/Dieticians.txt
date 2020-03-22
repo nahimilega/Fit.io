@@ -1,0 +1,363 @@
+/* Showing results for Dieticians.xlsx */
+
+/* CREATE TABLE */
+CREATE TABLE Dieticians(
+Dietician_ID int NOT NULL,
+Name VARCHAR(100) NOT NULL,
+Qualification VARCHAR(100) NOT NULL,
+Area_of_Interest VARCHAR(100) NOT NULL,
+Experience DOUBLE,
+Rating DOUBLE,
+primary key(Dietician_ID),
+foreign key (Dietician_ID) references User_Dietician(Dietician_ID)
+);
+
+/* INSERT QUERY NO: 1 */
+INSERT INTO Dieticians(Dietician_ID, Name, Qualification, Area_of_Interest, Experience, Rating)
+VALUES
+(
+1, 'Dr. Sugeets Mutreja', 'Master\'s Degree in Dietetics', 'Nutrition expert for healthyeats.com.', NULL, 4
+);
+
+/* INSERT QUERY NO: 2 */
+INSERT INTO Dieticians(Dietician_ID, Name, Qualification, Area_of_Interest, Experience, Rating)
+VALUES
+(
+2, 'Ms. Rakhi Khurana', 'PostGraduate Diploma in Dietetics', 'Writer & Spreading the word that healthy eating can taste great', 20, 3
+);
+
+/* INSERT QUERY NO: 3 */
+INSERT INTO Dieticians(Dietician_ID, Name, Qualification, Area_of_Interest, Experience, Rating)
+VALUES
+(
+3, 'Ms. Divya Gandhi', 'Bachelors in Dietetics', 'Certified in Adult Weight Management  & Wellcoaches health coach training program', 8, 5
+);
+
+/* INSERT QUERY NO: 4 */
+INSERT INTO Dieticians(Dietician_ID, Name, Qualification, Area_of_Interest, Experience, Rating)
+VALUES
+(
+4, 'Ms. Reema Madhian', 'PostGraduate Diploma in Dietetics', 'President & Welltech Solutions& Technology.', 25, NULL
+);
+
+/* INSERT QUERY NO: 5 */
+INSERT INTO Dieticians(Dietician_ID, Name, Qualification, Area_of_Interest, Experience, Rating)
+VALUES
+(
+5, 'Ms. Rupali Madhian', 'Master\'s Degree in Dietetics', 'Diabetes & Weight Management & Cardiovascular Disease & Counseling; Researcher', NULL, 3
+);
+
+/* INSERT QUERY NO: 6 */
+INSERT INTO Dieticians(Dietician_ID, Name, Qualification, Area_of_Interest, Experience, Rating)
+VALUES
+(
+6, 'Ms. Rupali Datta', 'Master\'s Degree in Dietetics', 'Certified Personal Trainer. Group Fitness Instructor', 9, 4
+);
+
+/* INSERT QUERY NO: 7 */
+INSERT INTO Dieticians(Dietician_ID, Name, Qualification, Area_of_Interest, Experience, Rating)
+VALUES
+(
+7, 'Dr. Lochan Arora', 'Master\'s Degree in Dietetics', 'Certified Diabetes Educator; Certified Nutrition Support Clinician; Speaker.', 3, 5
+);
+
+/* INSERT QUERY NO: 8 */
+INSERT INTO Dieticians(Dietician_ID, Name, Qualification, Area_of_Interest, Experience, Rating)
+VALUES
+(
+8, 'Ms. Priya Mittal', 'PostGraduate Diploma in Dietetics', 'Nutrition Consultant; Writer; Specialties include General Nutrition.', 9, 2
+);
+
+/* INSERT QUERY NO: 9 */
+INSERT INTO Dieticians(Dietician_ID, Name, Qualification, Area_of_Interest, Experience, Rating)
+VALUES
+(
+9, 'Ms. Vidhi Chawla', 'Master\'s Degree in Dietetics', 'Writer; Media Expert; Lifestyle Dietitian; Wellness Consultan', 7, 3
+);
+
+/* INSERT QUERY NO: 10 */
+INSERT INTO Dieticians(Dietician_ID, Name, Qualification, Area_of_Interest, Experience, Rating)
+VALUES
+(
+10, 'Ms. Monisha Ashokan', 'Master\'s Degree in Dietetics', 'Nutrition & One-on-one consultation for Diabetes.', NULL, 5
+);
+
+/* INSERT QUERY NO: 11 */
+INSERT INTO Dieticians(Dietician_ID, Name, Qualification, Area_of_Interest, Experience, Rating)
+VALUES
+(
+11, 'Dr. Shalini Singhal', 'Bachelors in Dietetics', 'Writer/presenter and co-author of Energy to Burn.', 9, 4
+);
+
+/* INSERT QUERY NO: 12 */
+INSERT INTO Dieticians(Dietician_ID, Name, Qualification, Area_of_Interest, Experience, Rating)
+VALUES
+(
+12, 'Ms. Sharvi Rastogi', 'PostGraduate Diploma in Dietetics', 'Certified Diabetes Educator.', 16, 2
+);
+
+/* INSERT QUERY NO: 13 */
+INSERT INTO Dieticians(Dietician_ID, Name, Qualification, Area_of_Interest, Experience, Rating)
+VALUES
+(
+13, 'Ms. Mansi Choudhary', 'Master\'s Degree in Dietetics', 'Regional Registered Dietitian for Western Athletic Clubst', 22, NULL
+);
+
+/* INSERT QUERY NO: 14 */
+INSERT INTO Dieticians(Dietician_ID, Name, Qualification, Area_of_Interest, Experience, Rating)
+VALUES
+(
+14, 'Dr. praveen Rutagi', 'Master\'s Degree in Dietetics', 'Working on spreading my passion for nutrition nationwide.', 22, 4
+);
+
+/* INSERT QUERY NO: 15 */
+INSERT INTO Dieticians(Dietician_ID, Name, Qualification, Area_of_Interest, Experience, Rating)
+VALUES
+(
+15, 'Ms. Lovneet Batra', 'PostGraduate Diploma in Dietetics', 'Pediatric nutrition & in person.', NULL, 5
+);
+
+/* INSERT QUERY NO: 16 */
+INSERT INTO Dieticians(Dietician_ID, Name, Qualification, Area_of_Interest, Experience, Rating)
+VALUES
+(
+16, 'Dr. Deepti Somani', 'Bachelors in Dietetics', 'Author & Nurturing with Nutrition; Certified Diabetes Educator.', 12, 2
+);
+
+/* INSERT QUERY NO: 17 */
+INSERT INTO Dieticians(Dietician_ID, Name, Qualification, Area_of_Interest, Experience, Rating)
+VALUES
+(
+17, 'Ms. Neha Agarwal', 'Master\'s Degree in Dietetics', 'Co-owner Knowledge Connection & LLC; Geriatric Nutrition.', 14, 3
+);
+
+/* INSERT QUERY NO: 18 */
+INSERT INTO Dieticians(Dietician_ID, Name, Qualification, Area_of_Interest, Experience, Rating)
+VALUES
+(
+18, 'Ms. Komal Mittal', 'PostGraduate Diploma in Dietetics', 'Associate RD; Individual Medical Nutrition Therapy.', 5, 3
+);
+
+/* INSERT QUERY NO: 19 */
+INSERT INTO Dieticians(Dietician_ID, Name, Qualification, Area_of_Interest, Experience, Rating)
+VALUES
+(
+19, 'Ms. Ekta Jain', 'Master\'s Degree in Dietetics', 'Clinician; Blogger; Loves Cooking; Member of the Food and Culinary Professionals', NULL, NULL
+);
+
+/* INSERT QUERY NO: 20 */
+INSERT INTO Dieticians(Dietician_ID, Name, Qualification, Area_of_Interest, Experience, Rating)
+VALUES
+(
+20, 'Ms. Shilpa Chawla', 'Bachelors in Dietetics', 'My passion is helping others achieve their personal best.', 12, 5
+);
+
+/* INSERT QUERY NO: 21 */
+INSERT INTO Dieticians(Dietician_ID, Name, Qualification, Area_of_Interest, Experience, Rating)
+VALUES
+(
+21, 'Ms. P.singh', 'PostGraduate Diploma in Dietetics', 'Founder & Nutritional Lifestyle Designs; Nutrition Coach.', 16, 2
+);
+
+/* INSERT QUERY NO: 22 */
+INSERT INTO Dieticians(Dietician_ID, Name, Qualification, Area_of_Interest, Experience, Rating)
+VALUES
+(
+22, 'Ms. Avni Kalia', 'Bachelors in Dietetics', 'Private Practice; Featured Nutrition Expert in DietitianCentral.com.', 7, 4
+);
+
+/* INSERT QUERY NO: 23 */
+INSERT INTO Dieticians(Dietician_ID, Name, Qualification, Area_of_Interest, Experience, Rating)
+VALUES
+(
+23, 'Ms. Raminder kaur Deshmukh', 'Master\'s Degree in Dietetics', 'Specialty Pediatric Nutrition. Develops healthcare blogs.', 17, 3
+);
+
+/* INSERT QUERY NO: 24 */
+INSERT INTO Dieticians(Dietician_ID, Name, Qualification, Area_of_Interest, Experience, Rating)
+VALUES
+(
+24, 'Dr. Vaibhav Garg', 'PostGraduate Diploma in Dietetics', 'Founder & CINET Registered Dietitians.', 29, 4
+);
+
+/* INSERT QUERY NO: 25 */
+INSERT INTO Dieticians(Dietician_ID, Name, Qualification, Area_of_Interest, Experience, Rating)
+VALUES
+(
+25, 'Ms. Shweta ', 'Bachelors in Dietetics', 'Certified Diabetes Educator & Author  & Spokesperson for ADA', 5, 4
+);
+
+/* INSERT QUERY NO: 26 */
+INSERT INTO Dieticians(Dietician_ID, Name, Qualification, Area_of_Interest, Experience, Rating)
+VALUES
+(
+26, 'Ms. Shalu Ahuja', 'Master\'s Degree in Dietetics', 'Nutrition Communicator; Blogger; Writer', 12, NULL
+);
+
+/* INSERT QUERY NO: 27 */
+INSERT INTO Dieticians(Dietician_ID, Name, Qualification, Area_of_Interest, Experience, Rating)
+VALUES
+(
+27, 'Ms. Nidhi Bhallla', 'Master\'s Degree in Dietetics', 'manage your diabetes & or eat right for pregnancy.', 4, 3
+);
+
+/* INSERT QUERY NO: 28 */
+INSERT INTO Dieticians(Dietician_ID, Name, Qualification, Area_of_Interest, Experience, Rating)
+VALUES
+(
+28, 'Ms. Anuja R Gaur', 'PostGraduate Diploma in Dietetics', '"Blogger & Writer & Health & Imagination to Burn™; Consultant."', 11, 4
+);
+
+/* INSERT QUERY NO: 29 */
+INSERT INTO Dieticians(Dietician_ID, Name, Qualification, Area_of_Interest, Experience, Rating)
+VALUES
+(
+29, 'Ms. Nidhi Dhawan', 'Master\'s Degree in Dietetics', 'Celiac  & Gluten-free Expert', 35, 4
+);
+
+/* INSERT QUERY NO: 30 */
+INSERT INTO Dieticians(Dietician_ID, Name, Qualification, Area_of_Interest, Experience, Rating)
+VALUES
+(
+30, 'Ms. Lata Sharma', 'Bachelors in Dietetics', 'Registered Dietitian & Patriot & Veteran.', 22, 3
+);
+
+/* INSERT QUERY NO: 31 */
+INSERT INTO Dieticians(Dietician_ID, Name, Qualification, Area_of_Interest, Experience, Rating)
+VALUES
+(
+31, 'Ms. Kamakshi vasudeva', 'PostGraduate Diploma in Dietetics', 'Pediatric nutrition & Consultant & Writer & Speaker', 6, 2
+);
+
+/* INSERT QUERY NO: 32 */
+INSERT INTO Dieticians(Dietician_ID, Name, Qualification, Area_of_Interest, Experience, Rating)
+VALUES
+(
+32, 'Ms. Ritu Arora', 'Master\'s Degree in Dietetics', 'Author & IBS-Free at Last!; Speaker..', NULL, 3
+);
+
+/* INSERT QUERY NO: 33 */
+INSERT INTO Dieticians(Dietician_ID, Name, Qualification, Area_of_Interest, Experience, Rating)
+VALUES
+(
+33, 'Ms. Rashmi Srivastava', 'Bachelors in Dietetics', 'Nutrition Coach; Specializes in Weight Control.', 5, 4
+);
+
+/* INSERT QUERY NO: 34 */
+INSERT INTO Dieticians(Dietician_ID, Name, Qualification, Area_of_Interest, Experience, Rating)
+VALUES
+(
+34, 'Ms. Dietician Nisha Malhotra', 'PostGraduate Diploma in Dietetics', 'Owner/Founder.', 4, 5
+);
+
+/* INSERT QUERY NO: 35 */
+INSERT INTO Dieticians(Dietician_ID, Name, Qualification, Area_of_Interest, Experience, Rating)
+VALUES
+(
+35, 'Ms. Deepti Dheer', 'Bachelors in Dietetics', 'Counseling & Consulting  & Pre/Postnatal Programs', 22, 5
+);
+
+/* INSERT QUERY NO: 36 */
+INSERT INTO Dieticians(Dietician_ID, Name, Qualification, Area_of_Interest, Experience, Rating)
+VALUES
+(
+36, 'Dr. Kavita Arora', 'Bachelors in Dietetics', 'Educator & SafeStaff® Foodhandler Certificate Program.', 36, 4
+);
+
+/* INSERT QUERY NO: 37 */
+INSERT INTO Dieticians(Dietician_ID, Name, Qualification, Area_of_Interest, Experience, Rating)
+VALUES
+(
+37, 'Dr. Neha Sharma', 'Master\'s Degree in Dietetics', 'Writer  & Researcher for Woman\'s World Weekly', 37, 3
+);
+
+/* INSERT QUERY NO: 38 */
+INSERT INTO Dieticians(Dietician_ID, Name, Qualification, Area_of_Interest, Experience, Rating)
+VALUES
+(
+38, 'Ms. Shikha Sharma', 'Master\'s Degree in Dietetics', 'Educator. Resources to increase productivity.', 15, 2
+);
+
+/* INSERT QUERY NO: 39 */
+INSERT INTO Dieticians(Dietician_ID, Name, Qualification, Area_of_Interest, Experience, Rating)
+VALUES
+(
+39, 'Ms. Priyanka Saxena', 'Bachelors in Dietetics', 'Founder/President at Nutrition Care for Children & LLC.', 10, 2
+);
+
+/* INSERT QUERY NO: 40 */
+INSERT INTO Dieticians(Dietician_ID, Name, Qualification, Area_of_Interest, Experience, Rating)
+VALUES
+(
+40, 'Ms. Megha Gupta', 'PostGraduate Diploma in Dietetics', 'Private Practice; Specializes in Mindful', NULL, 3
+);
+
+/* INSERT QUERY NO: 41 */
+INSERT INTO Dieticians(Dietician_ID, Name, Qualification, Area_of_Interest, Experience, Rating)
+VALUES
+(
+41, 'Ms. Swarn Shikha Sharma', 'Master\'s Degree in Dietetics', 'Experience in counseling.', 10, 5
+);
+
+/* INSERT QUERY NO: 42 */
+INSERT INTO Dieticians(Dietician_ID, Name, Qualification, Area_of_Interest, Experience, Rating)
+VALUES
+(
+42, 'Dr. Nidhi Malhotra Kalra', 'Bachelors in Dietetics', 'Private Practice; Specialist & Diabetes.', 12, 4
+);
+
+/* INSERT QUERY NO: 43 */
+INSERT INTO Dieticians(Dietician_ID, Name, Qualification, Area_of_Interest, Experience, Rating)
+VALUES
+(
+43, 'Ms. Pragati Bansal', 'PostGraduate Diploma in Dietetics', 'Nutrition Consultant; Certified Diabetes Educator', 13, 5
+);
+
+/* INSERT QUERY NO: 44 */
+INSERT INTO Dieticians(Dietician_ID, Name, Qualification, Area_of_Interest, Experience, Rating)
+VALUES
+(
+44, 'Ms. Ishi Khosla', 'Bachelors in Dietetics', 'Founding Director of Health Management; Areas of interest: Corporate Health/Nutrition.', NULL, 3
+);
+
+/* INSERT QUERY NO: 45 */
+INSERT INTO Dieticians(Dietician_ID, Name, Qualification, Area_of_Interest, Experience, Rating)
+VALUES
+(
+45, 'Ms. Dt. Mona Goel', 'Master\'s Degree in Dietetics', 'Specializes in Motivational Interviewing.', 13, 5
+);
+
+/* INSERT QUERY NO: 46 */
+INSERT INTO Dieticians(Dietician_ID, Name, Qualification, Area_of_Interest, Experience, Rating)
+VALUES
+(
+46, 'Ms. Seema Singh', 'Bachelors in Dietetics', 'Associates & Improving nutrition care for older adults through publications.', 12, NULL
+);
+
+/* INSERT QUERY NO: 47 */
+INSERT INTO Dieticians(Dietician_ID, Name, Qualification, Area_of_Interest, Experience, Rating)
+VALUES
+(
+47, 'Ms. Anju Arora', 'PostGraduate Diploma in Dietetics', 'Speaker on Food & Nutrition & Wellness.', 26, 5
+);
+
+/* INSERT QUERY NO: 48 */
+INSERT INTO Dieticians(Dietician_ID, Name, Qualification, Area_of_Interest, Experience, Rating)
+VALUES
+(
+48, 'Ms. Anshita Kataria', 'Bachelors in Dietetics', 'Food Label Expert; Publisher & Food Label News', NULL, 5
+);
+
+/* INSERT QUERY NO: 49 */
+INSERT INTO Dieticians(Dietician_ID, Name, Qualification, Area_of_Interest, Experience, Rating)
+VALUES
+(
+49, 'Dr. Mehak Baweja', 'Master\'s Degree in Dietetics', 'Correspondent & Speaker.', 9, 4
+);
+
+/* INSERT QUERY NO: 50 */
+INSERT INTO Dieticians(Dietician_ID, Name, Qualification, Area_of_Interest, Experience, Rating)
+VALUES
+(
+50, 'Ms. Varuni Upadhyay', 'PostGraduate Diploma in Dietetics', 'Assistant Director of Nutrition for the Rite Bite.', 20, 4
+);

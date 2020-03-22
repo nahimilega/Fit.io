@@ -1,0 +1,358 @@
+/* Showing results for User_Dietician .xlsx */
+
+/* CREATE TABLE */
+CREATE TABLE User_Dietician(
+User_ID DOUBLE NOT NULL,
+Dietician_ID int ,
+primary key(Dietician_ID)
+);
+
+/* INSERT QUERY NO: 1 */
+INSERT INTO User_Dietician(User_ID, Dietician_ID)
+VALUES
+(
+1, 1
+);
+
+/* INSERT QUERY NO: 2 */
+INSERT INTO User_Dietician(User_ID, Dietician_ID)
+VALUES
+(
+2, 2
+);
+
+/* INSERT QUERY NO: 3 */
+INSERT INTO User_Dietician(User_ID, Dietician_ID)
+VALUES
+(
+3, 3
+);
+
+/* INSERT QUERY NO: 4 */
+INSERT INTO User_Dietician(User_ID, Dietician_ID)
+VALUES
+(
+4, 4
+);
+
+/* INSERT QUERY NO: 5 */
+INSERT INTO User_Dietician(User_ID, Dietician_ID)
+VALUES
+(
+5, 5
+);
+
+/* INSERT QUERY NO: 6 */
+INSERT INTO User_Dietician(User_ID, Dietician_ID)
+VALUES
+(
+6, 6
+);
+
+/* INSERT QUERY NO: 7 */
+INSERT INTO User_Dietician(User_ID, Dietician_ID)
+VALUES
+(
+7, 7
+);
+
+/* INSERT QUERY NO: 8 */
+INSERT INTO User_Dietician(User_ID, Dietician_ID)
+VALUES
+(
+8, 8
+);
+
+/* INSERT QUERY NO: 9 */
+INSERT INTO User_Dietician(User_ID, Dietician_ID)
+VALUES
+(
+9, 9
+);
+
+/* INSERT QUERY NO: 10 */
+INSERT INTO User_Dietician(User_ID, Dietician_ID)
+VALUES
+(
+10, 10
+);
+
+/* INSERT QUERY NO: 11 */
+INSERT INTO User_Dietician(User_ID, Dietician_ID)
+VALUES
+(
+11, 11
+);
+
+/* INSERT QUERY NO: 12 */
+INSERT INTO User_Dietician(User_ID, Dietician_ID)
+VALUES
+(
+12, 12
+);
+
+/* INSERT QUERY NO: 13 */
+INSERT INTO User_Dietician(User_ID, Dietician_ID)
+VALUES
+(
+13, 13
+);
+
+/* INSERT QUERY NO: 14 */
+INSERT INTO User_Dietician(User_ID, Dietician_ID)
+VALUES
+(
+14, 14
+);
+
+/* INSERT QUERY NO: 15 */
+INSERT INTO User_Dietician(User_ID, Dietician_ID)
+VALUES
+(
+15, 15
+);
+
+/* INSERT QUERY NO: 16 */
+INSERT INTO User_Dietician(User_ID, Dietician_ID)
+VALUES
+(
+16, 16
+);
+
+/* INSERT QUERY NO: 17 */
+INSERT INTO User_Dietician(User_ID, Dietician_ID)
+VALUES
+(
+17, 17
+);
+
+/* INSERT QUERY NO: 18 */
+INSERT INTO User_Dietician(User_ID, Dietician_ID)
+VALUES
+(
+18, 18
+);
+
+/* INSERT QUERY NO: 19 */
+INSERT INTO User_Dietician(User_ID, Dietician_ID)
+VALUES
+(
+19, 19
+);
+
+/* INSERT QUERY NO: 20 */
+INSERT INTO User_Dietician(User_ID, Dietician_ID)
+VALUES
+(
+20, 20
+);
+
+/* INSERT QUERY NO: 21 */
+INSERT INTO User_Dietician(User_ID, Dietician_ID)
+VALUES
+(
+21, 21
+);
+
+/* INSERT QUERY NO: 22 */
+INSERT INTO User_Dietician(User_ID, Dietician_ID)
+VALUES
+(
+22, 22
+);
+
+/* INSERT QUERY NO: 23 */
+INSERT INTO User_Dietician(User_ID, Dietician_ID)
+VALUES
+(
+23, 23
+);
+
+/* INSERT QUERY NO: 24 */
+INSERT INTO User_Dietician(User_ID, Dietician_ID)
+VALUES
+(
+24, 24
+);
+
+/* INSERT QUERY NO: 25 */
+INSERT INTO User_Dietician(User_ID, Dietician_ID)
+VALUES
+(
+25, 25
+);
+
+/* INSERT QUERY NO: 26 */
+INSERT INTO User_Dietician(User_ID, Dietician_ID)
+VALUES
+(
+26, 26
+);
+
+/* INSERT QUERY NO: 27 */
+INSERT INTO User_Dietician(User_ID, Dietician_ID)
+VALUES
+(
+27, 27
+);
+
+/* INSERT QUERY NO: 28 */
+INSERT INTO User_Dietician(User_ID, Dietician_ID)
+VALUES
+(
+28, 28
+);
+
+/* INSERT QUERY NO: 29 */
+INSERT INTO User_Dietician(User_ID, Dietician_ID)
+VALUES
+(
+29, 29
+);
+
+/* INSERT QUERY NO: 30 */
+INSERT INTO User_Dietician(User_ID, Dietician_ID)
+VALUES
+(
+30, 30
+);
+
+/* INSERT QUERY NO: 31 */
+INSERT INTO User_Dietician(User_ID, Dietician_ID)
+VALUES
+(
+31,31
+);
+
+/* INSERT QUERY NO: 32 */
+INSERT INTO User_Dietician(User_ID, Dietician_ID)
+VALUES
+(
+32, 32
+);
+
+/* INSERT QUERY NO: 33 */
+INSERT INTO User_Dietician(User_ID, Dietician_ID)
+VALUES
+(
+33, 33
+);
+
+/* INSERT QUERY NO: 34 */
+INSERT INTO User_Dietician(User_ID, Dietician_ID)
+VALUES
+(
+34, 34
+);
+
+/* INSERT QUERY NO: 35 */
+INSERT INTO User_Dietician(User_ID, Dietician_ID)
+VALUES
+(
+35, 35
+);
+
+/* INSERT QUERY NO: 36 */
+INSERT INTO User_Dietician(User_ID, Dietician_ID)
+VALUES
+(
+36, 36
+);
+
+/* INSERT QUERY NO: 37 */
+INSERT INTO User_Dietician(User_ID, Dietician_ID)
+VALUES
+(
+37, 37
+);
+
+/* INSERT QUERY NO: 38 */
+INSERT INTO User_Dietician(User_ID, Dietician_ID)
+VALUES
+(
+38, 38
+);
+
+/* INSERT QUERY NO: 39 */
+INSERT INTO User_Dietician(User_ID, Dietician_ID)
+VALUES
+(
+39, 39
+);
+
+/* INSERT QUERY NO: 40 */
+INSERT INTO User_Dietician(User_ID, Dietician_ID)
+VALUES
+(
+40, 40
+);
+
+/* INSERT QUERY NO: 41 */
+INSERT INTO User_Dietician(User_ID, Dietician_ID)
+VALUES
+(
+41, 41
+);
+
+/* INSERT QUERY NO: 42 */
+INSERT INTO User_Dietician(User_ID, Dietician_ID)
+VALUES
+(
+42, 42
+);
+
+/* INSERT QUERY NO: 43 */
+INSERT INTO User_Dietician(User_ID, Dietician_ID)
+VALUES
+(
+43, 43
+);
+
+/* INSERT QUERY NO: 44 */
+INSERT INTO User_Dietician(User_ID, Dietician_ID)
+VALUES
+(
+44, 44
+);
+
+/* INSERT QUERY NO: 45 */
+INSERT INTO User_Dietician(User_ID, Dietician_ID)
+VALUES
+(
+45, 45
+);
+
+/* INSERT QUERY NO: 46 */
+INSERT INTO User_Dietician(User_ID, Dietician_ID)
+VALUES
+(
+46, 46
+);
+
+/* INSERT QUERY NO: 47 */
+INSERT INTO User_Dietician(User_ID, Dietician_ID)
+VALUES
+(
+47, 47
+);
+
+/* INSERT QUERY NO: 48 */
+INSERT INTO User_Dietician(User_ID, Dietician_ID)
+VALUES
+(
+48, 48
+);
+
+/* INSERT QUERY NO: 49 */
+INSERT INTO User_Dietician(User_ID, Dietician_ID)
+VALUES
+(
+49, 49
+);
+
+/* INSERT QUERY NO: 50 */
+INSERT INTO User_Dietician(User_ID, Dietician_ID)
+VALUES
+(
+50, 50
+);

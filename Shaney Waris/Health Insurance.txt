@@ -1,0 +1,240 @@
+/* Showing results for Health_Insurance.xlsx */
+
+/* CREATE TABLE */
+CREATE TABLE Health_Insurance(
+Insurance_ID DOUBLE NOT NULL,
+Name VARCHAR(100) NOT NULL,
+Location VARCHAR(100) NOT NULL,
+primary key(Insurance_ID)
+);
+
+/* INSERT QUERY NO: 1 */
+INSERT INTO Health_Insurance(Insurance_ID, Name, Location)
+VALUES
+(
+1, 'Apollo Munich Health Insurance Company', 'Delhi'
+);
+
+/* INSERT QUERY NO: 2 */
+INSERT INTO Health_Insurance(Insurance_ID, Name, Location)
+VALUES
+(
+2, 'ICICI Lombard Health Insurance', 'Kerala'
+);
+
+/* INSERT QUERY NO: 3 */
+INSERT INTO Health_Insurance(Insurance_ID, Name, Location)
+VALUES
+(
+3, 'Star Health Insurance', 'Gujarat'
+);
+
+/* INSERT QUERY NO: 4 */
+INSERT INTO Health_Insurance(Insurance_ID, Name, Location)
+VALUES
+(
+4, 'HDFC ERGO Health Insurance', 'Gujarat'
+);
+
+/* INSERT QUERY NO: 5 */
+INSERT INTO Health_Insurance(Insurance_ID, Name, Location)
+VALUES
+(
+5, 'New India Assurance Co. Ltd.', 'Andhra Pradesh'
+);
+
+/* INSERT QUERY NO: 6 */
+INSERT INTO Health_Insurance(Insurance_ID, Name, Location)
+VALUES
+(
+6, 'Oriental Insurance Co. Ltd.', 'Uttar Pradesh'
+);
+
+/* INSERT QUERY NO: 7 */
+INSERT INTO Health_Insurance(Insurance_ID, Name, Location)
+VALUES
+(
+7, 'National Insurance Co. Ltd.', 'Uttar Pradesh'
+);
+
+/* INSERT QUERY NO: 8 */
+INSERT INTO Health_Insurance(Insurance_ID, Name, Location)
+VALUES
+(
+8, 'SBI General Insurance Co. Ltd.', 'Karnataka'
+);
+
+/* INSERT QUERY NO: 9 */
+INSERT INTO Health_Insurance(Insurance_ID, Name, Location)
+VALUES
+(
+9, 'Star Health and Allied Insurance Co. Ltd.', 'Maharastra'
+);
+
+/* INSERT QUERY NO: 10 */
+INSERT INTO Health_Insurance(Insurance_ID, Name, Location)
+VALUES
+(
+10, 'Religare Health Insurance Co. Ltd.', 'Andhra Pradesh'
+);
+
+/* INSERT QUERY NO: 11 */
+INSERT INTO Health_Insurance(Insurance_ID, Name, Location)
+VALUES
+(
+11, 'Apollo Munich Health Insurance Co. Ltd', 'Bihar'
+);
+
+/* INSERT QUERY NO: 12 */
+INSERT INTO Health_Insurance(Insurance_ID, Name, Location)
+VALUES
+(
+12, 'Max Bupa Health Insurance Co. Ltd', 'Uttar Pradesh'
+);
+
+/* INSERT QUERY NO: 13 */
+INSERT INTO Health_Insurance(Insurance_ID, Name, Location)
+VALUES
+(
+13, 'Cigna TTK Health Insurance Co. Ltd', 'Maharastra'
+);
+
+/* INSERT QUERY NO: 14 */
+INSERT INTO Health_Insurance(Insurance_ID, Name, Location)
+VALUES
+(
+14, 'ICICI Lombard General Insurance Co. Ltd', 'Chhattisgarh'
+);
+
+/* INSERT QUERY NO: 15 */
+INSERT INTO Health_Insurance(Insurance_ID, Name, Location)
+VALUES
+(
+15, 'Bharti AXA General Insurance Co. Ltd', 'Bihar'
+);
+
+/* INSERT QUERY NO: 16 */
+INSERT INTO Health_Insurance(Insurance_ID, Name, Location)
+VALUES
+(
+16, 'Cholamandalam MS General Insurance Co. Ltd', 'West Bengal'
+);
+
+/* INSERT QUERY NO: 17 */
+INSERT INTO Health_Insurance(Insurance_ID, Name, Location)
+VALUES
+(
+17, 'Future Generali India Insurance Co. Ltd.', 'Uttar Pradesh'
+);
+
+/* INSERT QUERY NO: 18 */
+INSERT INTO Health_Insurance(Insurance_ID, Name, Location)
+VALUES
+(
+18, 'HDFC ERGO General Insurance Co. Ltd', 'Maharastra'
+);
+
+/* INSERT QUERY NO: 19 */
+INSERT INTO Health_Insurance(Insurance_ID, Name, Location)
+VALUES
+(
+19, 'IFFCO Tokio General Insurance Co. Ltd', 'Andhra Pradesh'
+);
+
+/* INSERT QUERY NO: 20 */
+INSERT INTO Health_Insurance(Insurance_ID, Name, Location)
+VALUES
+(
+20, 'L&T General Insurance Co. Ltd', 'Karnataka'
+);
+
+/* INSERT QUERY NO: 21 */
+INSERT INTO Health_Insurance(Insurance_ID, Name, Location)
+VALUES
+(
+21, 'Reliance General Insurance Co. Ltd', 'Punjab'
+);
+
+/* INSERT QUERY NO: 22 */
+INSERT INTO Health_Insurance(Insurance_ID, Name, Location)
+VALUES
+(
+22, 'Royal Sundaram Alliance Insurance Co. Ltd', 'Uttar Pradesh'
+);
+
+/* INSERT QUERY NO: 23 */
+INSERT INTO Health_Insurance(Insurance_ID, Name, Location)
+VALUES
+(
+23, 'Bajaj Allianz General Insurance Co. Ltd.', 'Maharastra'
+);
+
+/* INSERT QUERY NO: 24 */
+INSERT INTO Health_Insurance(Insurance_ID, Name, Location)
+VALUES
+(
+24, 'Universal Sompo General Insurance Co. Ltd.', 'Gujarat'
+);
+
+/* INSERT QUERY NO: 25 */
+INSERT INTO Health_Insurance(Insurance_ID, Name, Location)
+VALUES
+(
+25, 'United India Insurance Co. Ltd.', 'Gujarat'
+);
+
+/* INSERT QUERY NO: 26 */
+INSERT INTO Health_Insurance(Insurance_ID, Name, Location)
+VALUES
+(
+26, 'Future Generali India Insurance Co. Ltd.', 'Madhya Pradesh'
+);
+
+/* INSERT QUERY NO: 27 */
+INSERT INTO Health_Insurance(Insurance_ID, Name, Location)
+VALUES
+(
+27, 'Universal Sompo General Insurance Co. Ltd.', 'Haryana'
+);
+
+/* INSERT QUERY NO: 28 */
+INSERT INTO Health_Insurance(Insurance_ID, Name, Location)
+VALUES
+(
+28, 'Magma HDI General Insurance Comapny Limited', 'Uttar Pradesh'
+);
+
+/* INSERT QUERY NO: 29 */
+INSERT INTO Health_Insurance(Insurance_ID, Name, Location)
+VALUES
+(
+29, 'Shriram General Insurance Company', 'Uttarakhand'
+);
+
+/* INSERT QUERY NO: 30 */
+INSERT INTO Health_Insurance(Insurance_ID, Name, Location)
+VALUES
+(
+30, 'Liberty Videocon General Insurance', 'Gujarat'
+);
+
+/* INSERT QUERY NO: 31 */
+INSERT INTO Health_Insurance(Insurance_ID, Name, Location)
+VALUES
+(
+31, 'Raheja QBE General Insurance Company Limited', 'Rajasthan'
+);
+
+/* INSERT QUERY NO: 32 */
+INSERT INTO Health_Insurance(Insurance_ID, Name, Location)
+VALUES
+(
+32, 'Tata AIG General Insurance Comapny Limited', 'Bihar'
+);
+
+/* INSERT QUERY NO: 33 */
+INSERT INTO Health_Insurance(Insurance_ID, Name, Location)
+VALUES
+(
+33, 'ManipalCigna Health Insurance Commpany', 'Rajasthan'
+);
