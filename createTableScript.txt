@@ -1,0 +1,160 @@
+Archit
+
+Change
+CREATE TABLE `at_risk` (
+	`U_ID` INT(11) NOT NULL AUTO_INCREMENT,
+	`at_risk` TINYINT(1) NOT NULL,
+	`disease`VARCHAR(200) NOT NULL,
+	Hospital_Id DOUBLE NOT NULL,
+	PRIMARY KEY (`U_ID`,`disease`)
+	FOREIGN KEY(Hospital_Id) REFERENCES Hospital(Hospital_Id),
+	FOREIGN KEY(`U_ID`) REFERENCES users(`U_ID`)
+);
+
+
+CREATE TABLE daily_record_(Record of ith patient)(
+	`date` DATE NOT NULL ,
+	`steps` SMALLINT(7) NOT NULL,
+	`cal_intake` SMALLINT(6) NOT NULL ,
+	`avg_heart_rate` FLOAT(10,5) NOT NULL ,
+	`sleep` SMALLINT(2) NOT NULL,
+	PRIMARY KEY (`date`)
+);
+
+CREATE TABLE `users` (
+	`U_ID` INT(11) NOT NULL AUTO_INCREMENT,
+	`first_name` VARCHAR(50) NOT NULL COLLATE 'utf8_unicode_ci',
+	`last_name` VARCHAR(50) NOT NULL COLLATE 'utf8_unicode_ci',
+	`email` VARCHAR(100) NOT NULL COLLATE 'utf8_unicode_ci',
+	`date_of_birth` DATE NOT NULL,
+	`added_on` TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP,
+        `address` VARCHAR(10000) NOT NULL COLLATE 'utf8_unicode_ci',
+        `contact` VARCHAR(20) NOT NULL COLLATE 'utf8_unicode_ci',
+	PRIMARY KEY (`U_ID`),
+	UNIQUE INDEX `email` (`email`)
+);
+
+
+Udhvarg
+
+CREATE TABLE IF NOT EXISTS COUPONS(
+	Coupon_ID  INTEGER  NOT NULL PRIMARY KEY
+	,Valid_Date DATE  NOT NULL
+	,Type       VARCHAR(70) NOT NULL
+	,Details    VARCHAR(17)
+	,Product_ID INTEGER  NOT NULL
+	,FOREIGN KEY (Product_ID) REFERENCES Product_Manufacturers(Product_ID)
+);
+
+CREATE TABLE IF NOT EXISTS Product_Manufacturers(
+   Product_ID INTEGER  NOT NULL PRIMARY KEY
+  ,Name       VARCHAR(30) NOT NULL
+  ,Type       VARCHAR(70) NOT NULL
+  ,Coupons    INTEGER  NOT NULL
+);
+
+
+
+Hamzah
+
+CREATE TABLE RESTAURANTS (
+	RestaurantID INT AUTO_INCREMENT PRIMARY KEY,
+	Name varchar(50) NOT NULL,  
+	Location text,  
+	Rating INT,  
+	Cuisine varchar(20) NOT NULL,  
+	MenuID INT NOT NULL 
+);
+
+CREATE TABLE MENU (
+	Name varchar(50) NOT NULL,
+	Price INT,   
+	Calorie INT,
+	RestaurantID INT,
+	FOREIGN KEY(RestaurantID) REFERENCES RESTAURANTS(RestaurantID)
+);
+
+
+Gavish
+
+CREATE TABLE Hospital(
+	Hospital_Id DOUBLE,
+	Name VARCHAR(100),
+	Location VARCHAR(100),
+	At_Risk DOUBLE,
+);
+
+
+
+CREATE TABLE Food(
+	Name VARCHAR(100),
+	Calorie DOUBLE,
+	Cuisine VARCHAR(100),
+	Recipe VARCHAR(100)
+);
+
+
+"New table"
+CREATE TABLE Specialities (
+	Hospital_Id DOUBLE NOT NULL,
+	Speciality VARCHAR(100) NOT NULL,
+	PRIMARY KEY (Hospital_Id,`Speciality`),
+	FOREIGN KEY(Hospital_Id) REFERENCES Hospital(Hospital_Id)
+);
+
+
+
+
+
+Shaney
+
+CREATE TABLE Dieticians(
+Dietician_ID int NOT NULL,
+Name VARCHAR(100) NOT NULL,
+Qualification VARCHAR(100) NOT NULL,
+Area_of_Interest VARCHAR(100) NOT NULL,
+Experience DOUBLE,
+Rating DOUBLE,
+primary key(Dietician_ID),
+foreign key (Dietician_ID) references User_Dietician(Dietician_ID)
+);
+
+CREATE TABLE Health_Insurance(
+	Insurance_ID DOUBLE NOT NULL,
+	Name VARCHAR(100) NOT NULL,
+	Location VARCHAR(100) NOT NULL,
+	primary key(Insurance_ID)
+);
+
+CREATE TABLE Insurance_Purchased(
+	User_ID DOUBLE,
+	Insurance_ID DOUBLE
+);
+
+CREATE TABLE Possible_Clients_of_Insurance_Companies(
+	P_ID int NOT NULL,
+	Insurance_ID int NOT NULL,
+	Possible_Clients int NOT NULL,
+	primary key(P_ID)
+);
+
+CREATE TABLE User_Dietician(
+	User_ID DOUBLE NOT NULL,
+	Dietician_ID int ,
+	primary key(Dietician_ID)
+);
+
+
+
+
+
+
+
+"This table can be empty "
+CREATE TABLE User_Coupons (
+	Coupon_ID INT;
+	U_ID` INT(11)
+	Coupon_Quantity INT;
+	FOREIGN KEY(Coupon_ID) REFERENCES COUPONS(Coupon_ID),
+	FOREIGN KEY(`U_ID`) REFERENCES users(`U_ID`)
+); 
