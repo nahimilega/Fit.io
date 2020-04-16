@@ -35,7 +35,8 @@ def indexInfo():
 @app.route('/index', methods=['GET', 'POST'])
 def index():
 	global userData
-	userData = list(userData[0])
+	if(type(userData[0])==tuple):
+		userData = list(userData[0])
 	return jsonify(listData = userData)
 
 
