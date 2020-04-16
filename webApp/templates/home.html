@@ -1,0 +1,27 @@
+<html>
+
+<title>Test Form</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+    <!-- <link rel="stylesheet" type="text/css" href="style.css"> -->
+<body>
+    <div class="loginbox">
+    <img src="{{url_for('static', filename='image.png')}}" class='avatar'/>
+    <!-- <img src="image.png" class="avatar"> -->
+        <h1>Login Here</h1>
+        <br>
+        <form method="POST">
+            
+            <p>Username</p>
+            <input id="username" type="text" name="user" placeholder="Enter Username" required>
+            
+            <p>Password</p>
+            <input id="password" type="password" name="" placeholder="Enter Password" >
+            
+            <input id="loginButton" type="submit" name="" value="Login" >
+           <!--  <script type="text/javascript" src="./login.js"></script> -->
+       </form>
+    </div>
+    
+</body>
+
+</html>
