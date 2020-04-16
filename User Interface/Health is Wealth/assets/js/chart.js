@@ -1,9 +1,30 @@
+var userDailyData = new Array();
+var dailyrecord = $.ajax({
+        type: "POST",
+        url: "http://0.0.0.0:5000/index/getmoreinfo",
+        async: false,
+        success: function(data) {
+            userDailyData = data.daily
+        }
+    });
+console.log(userDailyData);
+
+var l = userDailyData.length-1;
+var date1 = userDailyData[l][0].slice(5, 11);
+var date2 = userDailyData[l-1][0].slice(5, 11);
+var date3 = userDailyData[l-2][0].slice(5, 11);
+var date4 = userDailyData[l-3][0].slice(5, 11);
+var date5 = userDailyData[l-4][0].slice(5, 11);
+
+
+
+
 $(document).ready(function() {
 
     // Bar Chart - 1
 
     var barChartData = {
-        labels: ['March 24', 'March 25', 'March 26', 'March 27', 'March 28', 'March 29'],
+        labels: [date1, date2, date3, date4, date5],
         datasets: [{
             label: 'Calories Consumed',
             backgroundColor: 'rgba(0, 158, 251, 0.5)',
@@ -34,13 +55,13 @@ $(document).ready(function() {
     // Bar Chart - 2
 
     var barChartData1 = {
-        labels: ['March 22', 'March 23', 'March 24', 'March 25', 'March 26', 'March 27', 'March 28', 'March 29'],
+        labels: [date1, date2, date3, date4, date5],
         datasets: [{
             label: 'No. of Steps',
             backgroundColor: 'rgba(0, 158, 251, 0.5)',
             borderColor: 'rgba(0, 158, 251, 1)',
             borderWidth: 1,
-            data: [3010, 4052, 5509, 2956, 4528, 3603, 4925, 4348]
+            data: [userDailyData[l][1], userDailyData[l-1][1], userDailyData[l-2][1], userDailyData[l-3][1], userDailyData[l-4][1]]
         }]
     };
 

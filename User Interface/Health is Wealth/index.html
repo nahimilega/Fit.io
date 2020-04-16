@@ -36,7 +36,7 @@
 							<img class="rounded-circle" src="assets/img/user.jpg" width="24" alt="Admin">
 							<span class="status online"></span>
                         </span>
-                        <span>Shaney Waris</span>
+                        <span id="loggedUser">Shaney Waris</span>
                     </a>
                     <div class="dropdown-menu">
                         <a class="dropdown-item" href="edit-profile.html">Edit Profile</a>
@@ -84,7 +84,7 @@
                         <div class="dash-widget">
                             <span class="dash-widget-bg1"><i class="fa fa-male" aria-hidden="true"></i></span>
                             <div class="dash-widget-info text-right">
-                                <h3>82</h3>
+                                <h3 id="weight">82</h3>
                                 <span class="widget-title1">Weight <i class="fa fa-check" aria-hidden="true"></i></span>
                             </div>
                         </div>
@@ -93,7 +93,7 @@
                         <div class="dash-widget">
                             <span class="dash-widget-bg2"><i class="fa fa-user-o"></i></span>
                             <div class="dash-widget-info text-right">
-                                <h3>4348 </h3>
+                                <h3 id="stepCount">4348 </h3>
                                 <span class="widget-title2">Today's Steps Count<i class="fa fa-check" aria-hidden="true"></i></span>
                             </div>
                         </div>
@@ -102,7 +102,7 @@
                         <div class="dash-widget">
                             <span class="dash-widget-bg3"><i class="fa fa-bolt" aria-hidden="true"></i></span>
                             <div class="dash-widget-info text-right">
-                                <h3>2510</h3>
+                                <h3 id="calorie">2510</h3>
                                 <span class="widget-title3">Calories <i class="fa fa-check" aria-hidden="true"></i></span>
                             </div>
                         </div>
@@ -111,7 +111,7 @@
                         <div class="dash-widget">
                             <span class="dash-widget-bg4"><i class="fa fa-heartbeat" aria-hidden="true"></i></span>
                             <div class="dash-widget-info text-right">
-                                <h3>75</h3>
+                                <h3 id="heartRate">75</h3>
                                 <span class="widget-title4">Heart rate <i class="fa fa-check" aria-hidden="true"></i></span>
                             </div>
                         </div>
@@ -195,6 +195,7 @@
             </div>
         </div>
     </div>
+    <script src="backend/js/index.js"></script>
     <script src="assets/js/chart.js"></script>
     <script src="assets/js/app.js"></script>
 
