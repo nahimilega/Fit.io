@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=0">
+    <link rel="shortcut icon" type="image/x-icon" href="assets/img/favicon.ico">
+    <title>Health is Wealth</title>
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.2.1/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel="stylesheet" type="text/css" href="assets/css/style.css">
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jQuery-slimScroll/1.3.8/jquery.slimscroll.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.9.3/Chart.bundle.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.9.3/Chart.js"></script>
+</head>
+
+<body>
+    <div class="main-wrapper">
+        <div class="header">
+            <div class="header-left">
+                <a href="index.html" class="logo">
+                    <img src="assets/img/logo.png" width="35" height="35" alt=""> <span>Health is Wealth</span>
+                </a>
+            </div>
+            <a id="toggle_btn" href="javascript:void(0);"><i class="fa fa-bars"></i></a>
+            <a id="mobile_btn" class="mobile_btn float-left" href="#sidebar"><i class="fa fa-bars"></i></a>
+            <ul class="nav user-menu float-right">
+                <li class="nav-item dropdown has-arrow">
+                    <a href="#" class="dropdown-toggle nav-link user-link" data-toggle="dropdown">
+                        <span class="user-img">
+							<img class="rounded-circle" src="assets/img/user.jpg" width="24" alt="Admin">
+							<span class="status online"></span>
+                        </span>
+                        <span id="loggedUser">Shaney Waris</span>
+                    </a>
+                    <div class="dropdown-menu">
+                        <a class="dropdown-item" href="edit-profile.html">Edit Profile</a>
+                        <a class="dropdown-item" href="login.html">Logout</a>
+                    </div>
+                </li>
+            </ul>
+        </div>
+        <div class="sidebar" id="sidebar">
+            <div class="sidebar-inner slimscroll">
+                <div id="sidebar-menu" class="sidebar-menu">
+                    <ul>
+                        <li class="menu-title">Main</li>
+                        <li class="active">
+                            <a href="index.html"><i class="fa fa-dashboard"></i> <span>Dashboard</span></a>
+                        </li>
+
+                        <li class="submenu">
+                            <a href="#"><i class="fa fa-user-md"></i> <span>Dietician</span> <span class="menu-arrow"></span></a>
+                            <ul style="display: none;">
+                                <li><a href="dieticians.html">All Dietician</a></li>
+                                <li><a href="myDietician.html">My Dietician </a></li>
+                            </ul>
+                        </li>
+                        <li>
+                            <a href="foodReommendation.html"><i class="fa fa-cutlery"></i> <span>Food Recommendation</span></a>
+                        </li>
+                        <li>
+                            <a href="nearbyRestraunts.html"><i class="fa fa-cutlery"></i> <span>Nearby Restaurant</span></a>
+                        </li>
+                        <li>
+                            <a href="enterMeal.html"><i class="fa fa-cutlery"></i> <span>Enter your meal</span></a>
+                        </li>
+                        <li>
+                            <a href="calendar.html"><i class="fa fa-calendar"></i> <span>Planout My Schedule</span></a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+        <div class="page-wrapper">
+            <div class="content">
+                <div class="row">
+                    <div class="col-sm-4 col-3">
+                        <h4 class="page-title">Food Recommendations</h4>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-md-12">
+                        <div class="table-responsive">
+                            <table class="table table-striped custom-table">
+                                <thead>
+                                    <tr>
+                                        <th>#</th>
+                                        <th>Food name</th>
+                                        <th>Calories</th>
+                                        <th>When?</th>
+                                        <th>Restaurant (You may choose)</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr>
+                                        <td>1</td>
+                                        <td>Milk</td>
+                                        <td>42</td>
+                                        <td><span class="custom-badge status-orange">Morning</span></td>
+                                        <td>Zara Family Restaurant</td>
+
+                                    </tr>
+                                    <tr>
+                                        <td>2</td>
+                                        <td>Palak Paneer</td>
+                                        <td>370</td>
+                                        <td><span class="custom-badge status-green">Lunch</span></td>
+                                        <td>Haryana Sweet & Restaurant</td>
+                                    </tr>
+                                    <tr>
+                                        <td>3</td>
+                                        <td>Healthy Broccoli Slaw Fish Tacos</td>
+                                        <td>34</td>
+                                        <td><span class="custom-badge status-purple">Dinner</span></td>
+                                        <td>Zara Family Restaurant</td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <script src="backend/js/setUsername.js"></script>
+    <script src="assets/js/app.js"></script>
+</body>
+
+</html>
