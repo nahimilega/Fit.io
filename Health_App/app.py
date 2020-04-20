@@ -4,6 +4,12 @@ import mysql.connector
 from mysql.connector import Error
 import updateUserData
 
+# DB connection imports
+import healthcaredb
+import hospitaldb
+import restaurantdb
+import insurancedb
+
 app = Flask(__name__)
 
 connection = mysql.connector.connect(
@@ -57,7 +63,11 @@ def foodRecommendation():
 
 @app.route("/mydietician")
 def myDietician():
-	return render_template('myDietician.html', username = userData[1]+" "+userData[2])
+	name, designation = getMyDieticianData()
+	return render_template('myDietician.html', 
+							username = userData[1]+" "+userData[2],
+							dieticianName = name,
+							designation = designation)
 
 @app.route("/nearbyRestraunts")
 def nearbyRestraunts():
@@ -67,6 +77,7 @@ def nearbyRestraunts():
 def home():
 	return "hi"
 # @app.route("/index")
+
 
 @app.route('/index/getmoreinfo', methods=['GET', 'POST'])
 def indexInfo():
@@ -128,6 +139,30 @@ def update():
 		return jsonify(updated="True")
 		return render_template('edit-profile.html', username = userData[1]+" "+userData[2])
 
+
+@app.route('/dieticians', methods=['GET', 'POST'])
+def dieticianData():
+	global userData
+	message = None
+	# Healthcare db contains dietician
+	if request.method == 'POST':
+		print("hello from all dietician");
+
+
+def getMyDieticianData():
+	dieticianCommand = '''  select * from User_Dietician where User_ID = %s'''
+
+	healthcaredb.healthCareCursor.execute(dieticianCommand, (userData[0],))
+	dieticianData = healthcaredb.healthCareCursor.fetchall()
+	mydieticianID = dieticianData[0][1]
+
+	dieticianCommand = '''  select * from Dieticians where Dietician_ID = %s'''
+	healthcaredb.healthCareCursor.execute(dieticianCommand, (mydieticianID,))
+	dieticianData = healthcaredb.healthCareCursor.fetchall()
+	dieticianData = list(dieticianData[0])
+
+	return dieticianData[1], dieticianData[3]
+	
 
 @app.after_request
 def add_headers(response):
