@@ -37,7 +37,7 @@
 							<img class="rounded-circle" src="{{url_for('static', filename='assets/img/user.jpg')}}" width="24" alt="Admin">
 							<span class="status online"></span>
                         </span>
-                        <span id="loggedUser">Shaney Waris</span>
+                        <span id="loggedUser">{{ username }}</span>
                     </a>
                     <div class="dropdown-menu">
                         <a class="dropdown-item" href="{{ url_for('editProfile') }}">Edit Profile</a>
@@ -143,7 +143,6 @@
         </div>
     </div>
     <script type="text/javascript" src="{{ url_for('static', filename='assets/js/app.js') }}"></script>
-    <script type="text/javascript" src="{{ url_for('static', filename='backend/js/setUsername.js') }}"></script>
 </body>
 
 </html>

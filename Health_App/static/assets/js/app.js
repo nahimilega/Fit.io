@@ -142,9 +142,9 @@ $(document).ready(function($) {
 	});
 	
 	// Datetimepicker
-	if($('.datetimepicker').length > 0) {
-		$('.datetimepicker').datetimepicker({
-			format: 'DD/MM/YYYY'
+	if($('#datetimepicker').length > 0) {
+		$('#datetimepicker').datetimepicker({
+			format: 'MM/DD/YYYY'
 		});
 	}
 	

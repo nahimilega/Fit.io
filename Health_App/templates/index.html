@@ -37,7 +37,7 @@
 							<img class="rounded-circle" src="{{url_for('static', filename='assets/img/user.jpg')}}" width="24" alt="Admin">
 							<span class="status online"></span>
                         </span>
-                        <span id="loggedUser">Shaney Waris</span>
+                        <span id="loggedUser">{{ username }}</span>
                     </a>
                     <div class="dropdown-menu">
                         <a class="dropdown-item" href="{{ url_for('editProfile') }}">Edit Profile</a>

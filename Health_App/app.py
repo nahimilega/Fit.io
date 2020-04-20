@@ -2,6 +2,7 @@ from flask import Flask, render_template, redirect, url_for,request, jsonify
 from flask import make_response
 import mysql.connector
 from mysql.connector import Error
+import updateUserData
 
 app = Flask(__name__)
 
@@ -17,12 +18,14 @@ userDailyData = []
 
 @app.route("/login")
 def loginPage():
+	global userData, userDailyData
+	userData = []
+	userDailyData = []
 	return render_template('login.html')
 
 @app.route("/dash")
 def dashboard():
-	print("fuck you guysss")
-	return render_template('index.html')
+	return render_template('index.html', username = userData[1]+" "+userData[2])
 
 @app.route("/forgotPass")
 def forgotPass():
@@ -34,31 +37,31 @@ def register():
 
 @app.route("/calendar")
 def calendar():
-	return render_template('calendar.html')
+	return render_template('calendar.html', username = userData[1]+" "+userData[2])
 
 @app.route("/dieticians")
 def dietician():
-	return render_template('dieticians.html')
+	return render_template('dieticians.html', username = userData[1]+" "+userData[2])
 
 @app.route("/editprofile")
 def editProfile():
-	return render_template('edit-profile.html')
+	return render_template('edit-profile.html', username = userData[1]+" "+userData[2])
 
 @app.route("/entermeal")
 def enterMeal():
-	return render_template('enterMeal.html')
+	return render_template('enterMeal.html', username = userData[1]+" "+userData[2])
 
 @app.route("/foodReommendation")
 def foodRecommendation():
-	return render_template('foodReommendation.html')
+	return render_template('foodReommendation.html', username = userData[1]+" "+userData[2])
 
 @app.route("/mydietician")
 def myDietician():
-	return render_template('myDietician.html')
+	return render_template('myDietician.html', username = userData[1]+" "+userData[2])
 
 @app.route("/nearbyRestraunts")
 def nearbyRestraunts():
-	return render_template('nearbyRestraunts.html')
+	return render_template('nearbyRestraunts.html', username = userData[1]+" "+userData[2])
 
 @app.route("/")
 def home():
@@ -80,6 +83,7 @@ def indexInfo():
 def index():
 	global userData
 	if(type(userData[0])==tuple):
+		print("userData:   ", userData)
 		userData = list(userData[0])
 	return jsonify(listData = userData)
 
@@ -95,22 +99,35 @@ def login():
 		userDataCommand = """select * from users where first_name = %s"""
 		userCursor.execute(userDataCommand, (username,))
 		userData = userCursor.fetchall()
-
-		print(userData)
+		userData = list(userData[0])
+		if(type(userData[0])==tuple):
+			userData = list(userData[0])
 		return jsonify(listData = userData)
-		# if(len(userData)!=0):
-		# 	print("found")
-		# 	return redirect(url_for('dashboard'))
-		# else:
-		# 	redirect(url_for('loginPage'))
-		# return jsonify(listData = userData)
-		# return redirect(url_for('dashboard'))
 
-		# result = "Hello From Python"
-		# resp = make_response('{"response": '+result+'}')
-		# resp.headers['Content-Type'] = "application/json"
-		# return resp
-		# return render_template('loging.html', message='')
+@app.route('/editprofile', methods=['GET', 'POST'])
+def update():
+	global userData
+	if request.method == 'POST':
+		firstName = request.form['firstName']
+		lastName = request.form['lastName']
+		DOB = request.form['DOB']
+		address = request.form['address']
+		contact = request.form['contact']
+		weight = request.form['weight']
+		# print("fuck")
+		print(firstName)
+		print(lastName)
+		connection ,userCursor = updateUserData.updateRecord(userData[0], firstName, lastName, DOB, address, contact, weight)
+
+		
+		userDataCommand = """select * from users where U_ID = %s"""
+		userCursor.execute(userDataCommand, (userData[0],))
+		userData = userCursor.fetchall()
+		if(type(userData[0])==tuple):
+			userData = list(userData[0])
+		return jsonify(updated="True")
+		return render_template('edit-profile.html', username = userData[1]+" "+userData[2])
+
 
 @app.after_request
 def add_headers(response):
