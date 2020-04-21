@@ -47,7 +47,12 @@ def calendar():
 
 @app.route("/dieticians")
 def dietician():
-	return render_template('dieticians.html', username = userData[1]+" "+userData[2])
+	dietdata = dieticianData()
+	template = '<div class="col-md-4 col-sm-4  col-lg-3">'+'<div class="profile-widget">' +'<div class="doctor-img">' +'<a class="avatar" href="#"><img alt="" src="{{ url_for('+ "'static'"+ ', filename='+"'assets/img/doctor-thumb-12.jpg') }}"'></a>'+'</div>' +'<h4 class="doctor-name text-ellipsis"><a href="#">%s</a></h4>'+'<div class="doc-prof">%s</div>'+'<div class="user-country">'+'<i class="fa fa-map-marker"></i> United States, San Francisco'+'</div>'+'</div>'+'</div>' 
+	template = template *20
+	return render_template('dieticians.html', 
+							username = userData[1]+" "+userData[2],
+							data = dietdata )
 
 @app.route("/editprofile")
 def editProfile():
@@ -140,13 +145,22 @@ def update():
 		return render_template('edit-profile.html', username = userData[1]+" "+userData[2])
 
 
-@app.route('/dieticians', methods=['GET', 'POST'])
 def dieticianData():
 	global userData
-	message = None
+	
 	# Healthcare db contains dietician
-	if request.method == 'POST':
-		print("hello from all dietician");
+
+	dieticianCommand = '''select * from Dieticians'''
+	healthcaredb.healthCareCursor.execute(dieticianCommand)
+	dieticianData = healthcaredb.healthCareCursor.fetchall()
+	data = []
+	for i in range(len(dieticianData)):
+		dieticianDict = {}
+		dieticianDict['name'] = dieticianData[i][1]
+		dieticianDict['designation'] = dieticianData[i][3]
+		data.append(dieticianDict)
+	return data
+
 
 
 def getMyDieticianData():

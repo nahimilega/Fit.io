@@ -85,115 +85,25 @@
                     </div>
                 </div>
                 <div class="row doctor-grid">
+                    {% for link in data %}
                     <div class="col-md-4 col-sm-4  col-lg-3">
                         <div class="profile-widget">
                             <div class="doctor-img">
-                                <a class="avatar" href="#"><img alt="" src="assets/img/doctor-thumb-01.jpg"></a>
+                                <a class="avatar" href="#"><img alt="" src="{{ url_for('static', filename='assets/img/doctor-thumb-06.jpg') }}"></a>
                             </div>
 
-                            <h4 class="doctor-name text-ellipsis"><a href="#">Gavish Gupta</a></h4>
-                            <div class="doc-prof">Nutrition in health and disease</div>
+                            <h4 class="doctor-name text-ellipsis"><a href="#">{{ link.name }}</a></h4>
+                            <div class="doc-prof">{{ link.designation }}</div>
                             <div class="user-country">
                                 <i class="fa fa-map-marker"></i> United States, San Francisco
                             </div>
-                        </div>
+                        </div>          
                     </div>
-                    <div class="col-md-4 col-sm-4  col-lg-3">
-                        <div class="profile-widget">
-                            <div class="doctor-img">
-                                <a class="avatar" href="#"><img alt="" src="assets/img/doctor-thumb-06.jpg"></a>
-                            </div>
-
-                            <h4 class="doctor-name text-ellipsis"><a href="#">Hamzah Akhtar</a></h4>
-                            <div class="doc-prof">Public health nutrition</div>
-                            <div class="user-country">
-                                <i class="fa fa-map-marker"></i> United States, San Francisco
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-md-4 col-sm-4  col-lg-3">
-                        <div class="profile-widget">
-                            <div class="doctor-img">
-                                <a class="avatar" href="#"><img alt="" src="assets/img/doctor-thumb-12.jpg"></a>
-                            </div>
-
-                            <h4 class="doctor-name text-ellipsis"><a href="#">Shaney Waris</a></h4>
-                            <div class="doc-prof">Food toxicology</div>
-                            <div class="user-country">
-                                <i class="fa fa-map-marker"></i> United States, San Francisco
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-md-4 col-sm-4  col-lg-3">
-                        <div class="profile-widget">
-                            <div class="doctor-img">
-                                <a class="avatar" href="#"><img alt="" src="assets/img/doctor-thumb-09.jpg"></a>
-                            </div>
-
-                            <h4 class="doctor-name text-ellipsis"><a href="#">Udhvarg</a></h4>
-                            <div class="doc-prof">Nutritional physiology</div>
-                            <div class="user-country">
-                                <i class="fa fa-map-marker"></i> United States, San Francisco
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-md-4 col-sm-4  col-lg-3">
-                        <div class="profile-widget">
-                            <div class="doctor-img">
-                                <a class="avatar" href="#"><img alt="" src="assets/img/doctor-thumb-01.jpg"></a>
-                            </div>
-
-                            <h4 class="doctor-name text-ellipsis"><a href="#">Arhit Aggarwal</a></h4>
-                            <div class="doc-prof">Molecular nutrition</div>
-                            <div class="user-country">
-                                <i class="fa fa-map-marker"></i> United States, San Francisco
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-md-4 col-sm-4  col-lg-3">
-                        <div class="profile-widget">
-                            <div class="doctor-img">
-                                <a class="avatar" href="#"><img alt="" src="assets/img/doctor-thumb-06.jpg"></a>
-                            </div>
-
-                            <h4 class="doctor-name text-ellipsis"><a href="#">Bhaskar Singh</a></h4>
-                            <div class="doc-prof">Sensory science</div>
-                            <div class="user-country">
-                                <i class="fa fa-map-marker"></i> United States, San Francisco
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-md-4 col-sm-4  col-lg-3">
-                        <div class="profile-widget">
-                            <div class="doctor-img">
-                                <a class="avatar" href="#"><img alt="" src="assets/img/doctor-thumb-12.jpg"></a>
-                            </div>
-
-                            <h4 class="doctor-name text-ellipsis"><a href="#">Shrey Singh</a></h4>
-                            <div class="doc-prof">Nutritional physiology</div>
-                            <div class="user-country">
-                                <i class="fa fa-map-marker"></i> United States, San Francisco
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-md-4 col-sm-4  col-lg-3">
-                        <div class="profile-widget">
-                            <div class="doctor-img">
-                                <a class="avatar" href="#"><img alt="" src="assets/img/doctor-thumb-09.jpg"></a>
-                            </div>
-
-                            <h4 class="doctor-name text-ellipsis"><a href="#">Kunal Aanand</a></h4>
-                            <div class="doc-prof">Nutrition in health and disease</div>
-                            <div class="user-country">
-                                <i class="fa fa-map-marker"></i> United States, San Francisco
-                            </div>
-                        </div>
-                    </div>
+                    {% endfor %}
                 </div>
             </div>
         </div>
     </div>
-    <script type="text/javascript" src="{{ url_for('static', filename='backend/js/dietician.js') }}"></script>
     <script type="text/javascript" src="{{ url_for('static', filename='assets/js/app.js') }}"></script>
 </body>
 
