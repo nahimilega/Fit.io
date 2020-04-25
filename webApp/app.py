@@ -27,7 +27,7 @@ currentUser = ''
 #    if request.method == 'POST':
 #         datafromjs = request.form['mydata']
 #         print(datafromjs)
-        
+
 #         result = "Hello From Python"
 #         resp = make_response('{"response": '+result+'}')
 #         resp.headers['Content-Type'] = "application/json"
@@ -57,8 +57,8 @@ def my_form_post():
 	userDataCommand = """select * from users where first_name = %s"""
 	userCursor.execute(userDataCommand, (currentUser,))
 	userData = userCursor.fetchall()
-	
-	
+
+
 	if(len(userData)==0):
 		return redirect(url_for('homePage'))
 	print("userdata: ", userData)
