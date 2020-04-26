@@ -8,9 +8,9 @@ app = Flask(__name__)
 
 connection = mysql.connector.connect(
 		host="localhost",
-		user="root",
-		passwd="scorpio",
-		database="testing"
+		user="archit",
+		passwd="1",
+		database="user"
 	)
 userCursor = connection.cursor(buffered=True)
 # userData = []
@@ -32,10 +32,10 @@ def updateRecord(uid, firstName, lastName, DOB, address, contact, weight):
 	userCursor.execute(updateCommand, (uid,))
 	return connection, userCursor
 	# user = userCursor.fetchall()
-	
-	
 
-	
+
+
+
 # @app.route("/login")
 # def loginPage():
 # 	global userData, userDailyData
@@ -94,7 +94,7 @@ def updateRecord(uid, firstName, lastName, DOB, address, contact, weight):
 # 	userid = userData[0]
 # 	userDailyDataCommand = """select * from daily_record_"""+str(userid)
 # 	userCursor.execute(userDailyDataCommand)
-# 	userDailyData = userCursor.fetchall()	
+# 	userDailyData = userCursor.fetchall()
 # 	print(userDailyData)
 # 	return jsonify(daily = userDailyData)
 
