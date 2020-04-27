@@ -1,6 +1,9 @@
 import mysql.connector
 from mysql.connector import Error
 import itertools
+import datetime
+from random import randint
+import random
 # Get dishes that user ate
 # Get user general cal intake
 # get similar dishes
@@ -114,4 +117,53 @@ def get_food_recommendation(user_id, meal_type):
         })
 
     dishes[-1]['name'] += "  (Something New)*"
+    connection.close()
+
     return dishes
+
+def get_all_food():
+    makeConnection()
+    get_food = 'SELECT Name from Food'
+    get_food = sanatizeList(executeQuery(get_food))
+    connection.close()
+    return get_food
+
+def enter_new_meal(result, user_id):
+    makeConnection()
+    toady_date = datetime.date.today()
+    find_if_there = "select date from daily_record_"+str(user_id)
+    present_dates = sanatizeList(executeQuery(find_if_there))
+    meal_id = 0
+
+    if toady_date not in present_dates:
+
+        steps = randint(0, 10000)
+        claint = randint(0, 1000)
+        avgHt = random.uniform(40,100)
+        sleep = randint(0,24)
+        meal_id = user_id*10000 + randint(0, 10000)
+        to_ins = (toady_date.strftime("%Y-%m-%d"),steps,claint,avgHt,sleep, meal_id)
+
+        sql = "INSERT INTO "+"daily_record_"+str(user_id) +""" (date, steps, cal_intake, avg_heart_rate,sleep,meal_id)
+                    VALUES {} """.format(to_ins)
+        cursor = connection.cursor()
+        cursor.execute(sql)
+        cursor.close()
+        connection.commit()
+    else:
+        sql = "SELECT meal_id from daily_record_{} where date='{}'".format(str(user_id), toady_date.strftime("%Y-%m-%d"))
+        meal_id = executeQuery(sql)[0][0]
+
+    check = "select count(*) from meals where meal_id = '{}' and meal_type = '{}'".format(meal_id,result['mealType'] )
+    val = executeQuery(check)[0][0]
+    sql = ''
+    if int(val) == 0:
+        sql = """INSERT INTO meals (meal_id, meal_type, meal_items, cal_intake )
+                        VALUES {} """.format((meal_id, result['mealType'], result['food'], result['cal']))
+    else:
+        sql = '''UPDATE meals SET meal_items = '{}', cal_intake = '{}' where meal_id = '{}' and meal_type = '{}' '''.format(result['food'], result['cal'],meal_id, result['mealType'] )
+
+    cursor = connection.cursor()
+    cursor.execute(sql)
+    cursor.close()
+    connection.commit()

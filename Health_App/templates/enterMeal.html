@@ -89,49 +89,36 @@
                 <div class="row">
                     <div class="col-md-6">
                         <div class="card-box">
-                            <form action="#">
+                            <form action = "http://0.0.0.0:5000/inputmeal" method = "POST">
                                 <div class="form-group row">
                                     <label class="col-md-3 col-form-label">Choose Meal Time</label>
                                     <div class="col-md-9">
-                                        <select>
-                                            <option>Select</option>
-                                            <option value="1">Morning</option>
-                                            <option value="2">Lunch</option>
-                                            <option value="3">Snacks</option>
-                                            <option value="4">Dinner</option>
+                                        <select name="mealType">
+                                            <option value="0">Breakfast</option>
+                                            <option value="1">Lunch</option>
+                                            <option value="2">Snacks</option>
+                                            <option value="3">Dinner</option>
                                         </select>
                                     </div>
                                 </div>
                                 <div class="form-group row">
                                     <label class="col-md-3 col-form-label">Food - 1 *</label>
                                     <div class="col-md-9">
-                                        <input type="text" class="form-control" required>
+                                        <input type="text" name = "food" class="form-control" required list="food-list">
+                                        <datalist id="food-list">
+                                            {% for food in food_list  %}
+                                            <option>{{food}}</option>
+                                            {% endfor %}
+                                        </datalist>
                                     </div>
                                 </div>
                                 <div class="form-group row">
-                                    <label class="col-md-3 col-form-label">Food - 2 *</label>
+                                    <label class="col-md-3 col-form-label">Cal intake *</label>
                                     <div class="col-md-9">
-                                        <input type="text" class="form-control" required>
+                                        <input type="number" name = "cal" class="form-control" required>
                                     </div>
                                 </div>
-                                <div class="form-group row">
-                                    <label class="col-md-3 col-form-label">Food - 3</label>
-                                    <div class="col-md-9">
-                                        <input type="text" class="form-control">
-                                    </div>
-                                </div>
-                                <div class="form-group row">
-                                    <label class="col-md-3 col-form-label">Food - 4</label>
-                                    <div class="col-md-9">
-                                        <input type="text" class="form-control">
-                                    </div>
-                                </div>
-                                <div class="form-group row">
-                                    <label class="col-md-3 col-form-label">Food - 5</label>
-                                    <div class="col-md-9">
-                                        <input type="text" class="form-control">
-                                    </div>
-                                </div>
+
                                 <div class="text-right">
                                     <button type="submit" class="btn btn-primary">Submit</button>
                                 </div>

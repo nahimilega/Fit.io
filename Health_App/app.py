@@ -3,7 +3,7 @@ from flask import make_response
 import mysql.connector
 from mysql.connector import Error
 import updateUserData
-from getfoodRecommendation import get_food_recommendation
+from getfoodRecommendation import get_food_recommendation, get_all_food, enter_new_meal
 app = Flask(__name__)
 
 connection = mysql.connector.connect(
@@ -49,7 +49,18 @@ def editProfile():
 
 @app.route("/entermeal")
 def enterMeal():
-    return render_template('enterMeal.html', username = userData[1]+" "+userData[2])
+    food_list = get_all_food()
+    return render_template('enterMeal.html', username = userData[1]+" "+userData[2], food_list = food_list)
+
+@app.route('/inputmeal',methods = ['POST', 'GET'])
+def result():
+    if request.method == 'POST':
+        result = request.form
+        enter_new_meal(result, userData[0])
+
+    food_list = get_all_food()
+    return render_template('enterMeal.html', username = userData[1]+" "+userData[2], food_list = food_list)
+
 
 @app.route("/foodReommendation")
 def foodRecommendation():
