@@ -1,10 +1,15 @@
-from flask import Flask, render_template, redirect, url_for,request, jsonify
+from flask import Flask, render_template, redirect, url_for,request, jsonify, session
 from flask import make_response
 import mysql.connector
 from mysql.connector import Error
 import updateUserData
 from getfoodRecommendation import get_food_recommendation, get_all_food, enter_new_meal
+from functools import wraps
 app = Flask(__name__)
+app.secret_key = 'ButterNaan'  # Change this!
+
+
+
 
 connection = mysql.connector.connect(
         host="localhost",
@@ -14,18 +19,36 @@ connection = mysql.connector.connect(
     )
 userCursor = connection.cursor(buffered=True)
 userData = []
-userDailyData = []
+
+
+
+
+def login_required(f):
+    @wraps(f)
+    def wrap(*args, **kwargs):
+        if 'logged_in' in session:
+            return f(*args, **kwargs)
+        else:
+            return redirect(url_for('login'))
+
+    return wrap
+
+@app.route("/logout")
+@login_required
+def logout():
+    session.clear()
+    return render_template('login.html')
+
 
 @app.route("/login")
 def loginPage():
-    global userData, userDailyData
-    userData = []
-    userDailyData = []
     return render_template('login.html')
 
+
 @app.route("/dash")
+@login_required
 def dashboard():
-    return render_template('index.html', username = userData[1]+" "+userData[2])
+    return render_template('index.html', username = session['name'])
 
 @app.route("/forgotPass")
 def forgotPass():
@@ -35,50 +58,65 @@ def forgotPass():
 def register():
     return render_template('register.html')
 
+
 @app.route("/calendar")
+@login_required
 def calendar():
-    return render_template('calendar.html', username = userData[1]+" "+userData[2])
+    return render_template('calendar.html', username = session['name'])
+
 
 @app.route("/dieticians")
+@login_required
 def dietician():
-    return render_template('dieticians.html', username = userData[1]+" "+userData[2])
+    return render_template('dieticians.html', username = session['name'])
+
 
 @app.route("/editprofile")
+@login_required
 def editProfile():
-    return render_template('edit-profile.html', username = userData[1]+" "+userData[2])
+    return render_template('edit-profile.html', username = session['name'])
+
 
 @app.route("/entermeal")
+@login_required
 def enterMeal():
     food_list = get_all_food()
-    return render_template('enterMeal.html', username = userData[1]+" "+userData[2], food_list = food_list)
+
+    return render_template('enterMeal.html', username = session['name'], food_list = food_list)
+
 
 @app.route('/inputmeal',methods = ['POST', 'GET'])
+@login_required
 def result():
     if request.method == 'POST':
         result = request.form
-        enter_new_meal(result, userData[0])
+        enter_new_meal(result, session['id'])
 
     food_list = get_all_food()
-    return render_template('enterMeal.html', username = userData[1]+" "+userData[2], food_list = food_list)
+    return render_template('enterMeal.html', username = session['name'], food_list = food_list)
 
 
 @app.route("/foodReommendation")
+@login_required
 def foodRecommendation():
-    breakfast = get_food_recommendation(userData[0],0)
-    lunch = get_food_recommendation(userData[0],1)
-    snacks = get_food_recommendation(userData[0],2)
-    dinner = get_food_recommendation(userData[0],3)
-    return render_template('foodReommendation.html', username = userData[1]+" "+userData[2],
+    breakfast = get_food_recommendation(session['id'],0)
+    lunch = get_food_recommendation(session['id'],1)
+    snacks = get_food_recommendation(session['id'],2)
+    dinner = get_food_recommendation(session['id'],3)
+    return render_template('foodReommendation.html', username = session['name'],
                            breakfast = breakfast,lunch = lunch, snacks = snacks, dinner = dinner)
 
 
 @app.route("/mydietician")
+@login_required
 def myDietician():
-    return render_template('myDietician.html', username = userData[1]+" "+userData[2])
+    return render_template('myDietician.html', username = session['name'])
+
 
 @app.route("/nearbyRestraunts")
+@login_required
 def nearbyRestraunts():
-    return render_template('nearbyRestraunts.html', username = userData[1]+" "+userData[2])
+    return render_template('nearbyRestraunts.html', username = session['name'])
 
 @app.route("/")
 def home():
@@ -87,12 +125,11 @@ def home():
 
 @app.route('/index/getmoreinfo', methods=['GET', 'POST'])
 def indexInfo():
-    global userData, userDailyData
+    global userData
     userid = userData[0]
     userDailyDataCommand = """select * from daily_record_"""+str(userid)
     userCursor.execute(userDailyDataCommand)
     userDailyData = userCursor.fetchall()
-    print(userDailyData)
     return jsonify(daily = userDailyData)
 
 
@@ -110,15 +147,21 @@ def login():
     global userData
     message = None
     if request.method == 'POST':
-        username = request.form['user']
+        emailID = request.form['user']
         password = request.form['pass']
 
-        userDataCommand = """select * from users where first_name = %s"""
-        userCursor.execute(userDataCommand, (username,))
+        userDataCommand = """select * from users where email = %s"""
+        userCursor.execute(userDataCommand, (emailID,))
         userData = userCursor.fetchall()
+        print(password)
+        if len(userData) == 0:
+            return jsonify(listData = userData)
+
         userData = list(userData[0])
-        if(type(userData[0])==tuple):
-            userData = list(userData[0])
+        session['logged_in'] = True
+        session['id'] = userData[0]
+        session['name'] = userData[1] + " " + userData[2]
+
         return jsonify(listData = userData)
 
 @app.route('/editprofile', methods=['GET', 'POST'])
@@ -132,9 +175,8 @@ def update():
         contact = request.form['contact']
         weight = request.form['weight']
         # print("fuck")
-        print(firstName)
-        print(lastName)
-        connection ,userCursor = updateUserData.updateRecord(userData[0], firstName, lastName, DOB, address, contact, weight)
+
+        connection ,userCursor = updateUserData.updateRecord(session['id'], firstName, lastName, DOB, address, contact, weight)
 
 
         userDataCommand = """select * from users where U_ID = %s"""
@@ -143,7 +185,7 @@ def update():
         if(type(userData[0])==tuple):
             userData = list(userData[0])
         return jsonify(updated="True")
-        return render_template('edit-profile.html', username = userData[1]+" "+userData[2])
+        return render_template('edit-profile.html', username = session['name'])
 
 
 @app.after_request
