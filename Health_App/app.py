@@ -3,12 +3,14 @@ from flask import make_response
 import mysql.connector
 from mysql.connector import Error
 import updateUserData
+import random
 
 # DB connection imports
 import healthcaredb
 import hospitaldb
 import restaurantdb
 import insurancedb
+
 
 app = Flask(__name__)
 
@@ -31,7 +33,8 @@ def loginPage():
 
 @app.route("/dash")
 def dashboard():
-	return render_template('index.html', username = userData[1]+" "+userData[2])
+	return render_template('index.html', 
+							username = userData[1]+" "+userData[2])
 
 @app.route("/forgotPass")
 def forgotPass():
@@ -43,28 +46,31 @@ def register():
 
 @app.route("/calendar")
 def calendar():
-	return render_template('calendar.html', username = userData[1]+" "+userData[2])
+	return render_template('calendar.html',
+							username = userData[1]+" "+userData[2])
 
 @app.route("/dieticians")
 def dietician():
 	dietdata = dieticianData()
-	template = '<div class="col-md-4 col-sm-4  col-lg-3">'+'<div class="profile-widget">' +'<div class="doctor-img">' +'<a class="avatar" href="#"><img alt="" src="{{ url_for('+ "'static'"+ ', filename='+"'assets/img/doctor-thumb-12.jpg') }}"'></a>'+'</div>' +'<h4 class="doctor-name text-ellipsis"><a href="#">%s</a></h4>'+'<div class="doc-prof">%s</div>'+'<div class="user-country">'+'<i class="fa fa-map-marker"></i> United States, San Francisco'+'</div>'+'</div>'+'</div>' 
-	template = template *20
+	
 	return render_template('dieticians.html', 
 							username = userData[1]+" "+userData[2],
 							data = dietdata )
 
 @app.route("/editprofile")
 def editProfile():
-	return render_template('edit-profile.html', username = userData[1]+" "+userData[2])
+	return render_template('edit-profile.html', 
+							username = userData[1]+" "+userData[2])
 
 @app.route("/entermeal")
 def enterMeal():
-	return render_template('enterMeal.html', username = userData[1]+" "+userData[2])
+	return render_template('enterMeal.html', 
+							username = userData[1]+" "+userData[2])
 
 @app.route("/foodReommendation")
 def foodRecommendation():
-	return render_template('foodReommendation.html', username = userData[1]+" "+userData[2])
+	return render_template('foodReommendation.html', 
+							username = userData[1]+" "+userData[2])
 
 @app.route("/mydietician")
 def myDietician():
@@ -76,12 +82,26 @@ def myDietician():
 
 @app.route("/nearbyRestraunts")
 def nearbyRestraunts():
-	return render_template('nearbyRestraunts.html', username = userData[1]+" "+userData[2])
+	restaurantCommand = ''' select * from RESTAURANTS '''
+	restaurantdb.restaurantCursor.execute(restaurantCommand)
+	restaurantData = restaurantdb.restaurantCursor.fetchall()
+	
+	nearbyRestData = random.sample(restaurantData, 5)
+	data = []
+	for d in nearbyRestData:
+		dataDict = {}
+		dataDict['name'] = d[1]
+		dataDict['location'] = d[2] 
+		dataDict['rating'] = d[3]
+		data.append(dataDict)
+
+	return render_template('nearbyRestraunts.html', 
+							username = userData[1]+" "+userData[2],
+							data = data)
 
 @app.route("/")
 def home():
 	return "hi"
-# @app.route("/index")
 
 
 @app.route('/index/getmoreinfo', methods=['GET', 'POST'])
@@ -160,6 +180,7 @@ def dieticianData():
 		dieticianDict['designation'] = dieticianData[i][3]
 		data.append(dieticianDict)
 	return data
+
 
 
 

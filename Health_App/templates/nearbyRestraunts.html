@@ -98,14 +98,15 @@
                                             </tr>
                                         </thead>
                                         <tbody>
+                                            {% for details in data %}
                                             <tr>
                                                 <td style="min-width: 200px;">
                                                     <a class="avatar" href="#">Z</a>
-                                                    <h2><a href="#">Zara Family Restaurant<span>Rating: 5 star</span></a></h2>
+                                                    <h2><a href="#">{{ details.name }}<span>Rating: {{ details.rating }} star</span></a></h2>
                                                 </td>
                                                 <td>
                                                     <h5 class="time-title p-0">Address</h5>
-                                                    <p>Shop No. 15, DDA Market, I.P.Extension, Delhi, 92</p>
+                                                    <p>{{ details.location }}</p>
                                                 </td>
                                                 <td>
                                                     <h5 class="time-title p-0">Timing</h5>
@@ -115,23 +116,7 @@
                                                     <a href="#" class="btn btn-outline-primary take-btn">View Menu</a>
                                                 </td>
                                             </tr>
-                                            <tr>
-                                                <td style="min-width: 200px;">
-                                                    <a class="avatar" href="#">H</a>
-                                                    <h2><a href="#">Haryana Sweet & Restaurant<span>Rating: 4 star</span></a></h2>
-                                                </td>
-                                                <td>
-                                                    <h5 class="time-title p-0">Address</h5>
-                                                    <p>Shop No. 27, DDA Market, I.P.Extension, Delhi, 92</p>
-                                                </td>
-                                                <td>
-                                                    <h5 class="time-title p-0">Timing</h5>
-                                                    <p>10:00 AM - 11 :00 PM</p>
-                                                </td>
-                                                <td class="text-right">
-                                                    <a href="#" class="btn btn-outline-primary take-btn">View Menu</a>
-                                                </td>
-                                            </tr>
+                                            {% endfor %}
                                         </tbody>
                                     </table>
                                 </div>
