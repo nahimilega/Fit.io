@@ -154,7 +154,7 @@ def login():
         userCursor.execute(userDataCommand, (emailID,))
         userData = userCursor.fetchall()
         print(password)
-        if len(userData) == 0:
+        if len(userData) == 0 or password != 'temp':
             return jsonify(listData = userData)
 
         userData = list(userData[0])
@@ -180,10 +180,9 @@ def update():
 
 
         userDataCommand = """select * from users where U_ID = %s"""
-        userCursor.execute(userDataCommand, (userData[0],))
+        userCursor.execute(userDataCommand, (session['id'],))
         userData = userCursor.fetchall()
-        if(type(userData[0])==tuple):
-            userData = list(userData[0])
+
         return jsonify(updated="True")
         return render_template('edit-profile.html', username = session['name'])
 
