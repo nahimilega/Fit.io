@@ -23,7 +23,7 @@
     <div class="main-wrapper">
         <div class="header">
             <div class="header-left">
-                <a href="index.html" class="logo">
+                <a href="{{ url_for('dashboard') }}" class="logo">
                     <img src="{{url_for('static', filename='assets/img/logo.png')}}" width="35" height="35" alt=""> <span>Health is Wealth</span>
                 </a>
             </div>
@@ -36,7 +36,7 @@
 							<img class="rounded-circle" src="{{url_for('static', filename='assets/img/user.jpg')}}" width="24" alt="Admin">
 							<span class="status online"></span>
                         </span>
-                        <span id="loggedUser">{{ username }}</span>
+                        <span>{{ username }}</span>
                     </a>
                     <div class="dropdown-menu">
                         <a class="dropdown-item" href="{{ url_for('editProfile') }}">Edit Profile</a>
@@ -51,7 +51,7 @@
                     <ul>
                         <li class="menu-title">Main</li>
                         <li class="active">
-                            <a href="{{ url_for('dashboard') }}"><i class="fa fa-dashboard"></i> <span>Dashboard</span></a>
+                            <a href="{{ url_for('dashboard') }}"><i class="fa fa-dashboard"></i> Dashboard</span></a>
                         </li>
 
                         <li class="submenu">
@@ -88,23 +88,33 @@
             <div class="content">
                 <div class="row">
                     <div class="col-sm-4 col-3">
-                        <h4 class="page-title">Dieticians</h4>
+                        <h4 class="page-title">Hospitals</h4>
+
+                    </div>
+
+
+                </div>
+                <div class="row filter-row justify-content-center">
+                    <div class="col-sm-6 col-md-3">
+                        <div class="form-group form-focus">
+                            <label class="focus-label">Search Hospital</label>
+                            <input type="text" class="form-control floating">
+                        </div>
+                    </div>
+                    <div class="col-sm-6 col-md-3">
+                        <a href="#" class="btn btn-success btn-block" style="max-width: 50%;"> Search </a>
                     </div>
                 </div>
                 <div class="row doctor-grid">
-                    {% for link in data %}
+                    {% for details in data %}
                     <div class="col-md-4 col-sm-4  col-lg-3">
                         <div class="profile-widget">
-                            <div class="doctor-img">
-                                <a class="avatar" href="#"><img alt="" src="{{ url_for('static', filename='assets/img/doctor-thumb-06.jpg') }}"></a>
-                            </div>
-
-                            <h4 class="doctor-name text-ellipsis"><a href="#">{{ link.name }}</a></h4>
-                            <div class="doc-prof">{{ link.designation }}</div>
+                            <h4 class="doctor-name text-ellipsis"><a href="#">{{ details.name }}</a></h4>
+                            <div class="doc-prof"><i class="fa fa-star"></i> <i class="fa fa-star"></i> <i class="fa fa-star"></i> <i class="fa fa-star"></i> <i class="fa fa-star"></i> </div>
                             <div class="user-country">
-                                <i class="fa fa-map-marker"></i> United States, San Francisco
+                                <i class="fa fa-map-marker"></i>{{details.location }}
                             </div>
-                        </div>          
+                        </div>
                     </div>
                     {% endfor %}
                 </div>

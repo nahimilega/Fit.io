@@ -49,6 +49,29 @@ def calendar():
 	return render_template('calendar.html',
 							username = userData[1]+" "+userData[2])
 
+@app.route("/hospital")
+def hospital():
+	hospitalCommand = ''' select * from Hospital '''
+	hospitaldb.hospitalCursor.execute(hospitalCommand)
+	hospitalData = hospitaldb.hospitalCursor.fetchall()
+	print("\n\n\n\n\n\n", hospitalData, "\n\n\n\n")
+	print(len(hospitalData), "\n\n\n\n\n\nn\n\n\\n\n\n\n\nn")
+	# nearbyRestData = random.sample(restaurantData, 5)
+	data = []
+	for d in hospitalData:
+		dataDict = {}
+		dataDict['name'] = d[1] + " Hospital"
+		dataDict['location'] = d[2] 
+		data.append(dataDict)
+	return render_template('hospital.html',
+							username = userData[1]+" "+userData[2],
+							data = data)
+
+@app.route("/coupons")
+def coupons():
+	return render_template('myCoupons.html',
+							username = userData[1]+" "+userData[2])
+
 @app.route("/dieticians")
 def dietician():
 	dietdata = dieticianData()

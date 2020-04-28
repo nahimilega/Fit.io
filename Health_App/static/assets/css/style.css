@@ -323,8 +323,8 @@ table.table td h2 span {
 }
 
 .badge-success-border {
-    border: 1px solid #55ce63;
-    color: #55ce63;
+    border: 1px solid #009efb;
+    color: #009efb;
     background-color: #fff;
     display: inline-block;
     min-width: 80px;
@@ -405,7 +405,7 @@ table.table td h2 span {
 
 .bg-success,
 .badge-success {
-    background-color: #55ce63 !important;
+    background-color: #009efb !important;
 }
 
 .bg-info,
@@ -434,7 +434,7 @@ table.table td h2 span {
 
 .text-success,
 .dropdown-menu>li>a.text-success {
-    color: #55ce63;
+    color: #009efb;
 }
 
 .text-danger,
@@ -513,8 +513,8 @@ table.table td h2 span {
 }
 
 .btn-success {
-    background-color: #55ce63;
-    border: 1px solid #55ce63
+    background-color: #009efb;
+    border: 1px solid #009efb
 }
 
 .btn-success:hover,
@@ -522,8 +522,8 @@ table.table td h2 span {
 .btn-success.active,
 .btn-success:active,
 .open>.dropdown-toggle.btn-success {
-    background: #4ab657;
-    border: 1px solid #4ab657
+    background: #009efb;
+    border: 1px solid #009efb
 }
 
 .btn-success.active.focus,
@@ -535,8 +535,8 @@ table.table td h2 span {
 .open>.dropdown-toggle.btn-success.focus,
 .open>.dropdown-toggle.btn-success:focus,
 .open>.dropdown-toggle.btn-success:hover {
-    background: #4ab657;
-    border: 1px solid #4ab657
+    background: #009efb;
+    border: 1px solid #009efb
 }
 
 .btn-info {
@@ -902,7 +902,7 @@ textarea.form-control {
 }
 
 .status.online {
-    background-color: #55ce63;
+    background-color: #009efb;
 }
 
 .status.offline {
@@ -1300,7 +1300,7 @@ textarea.form-control {
     font-size: 50px;
     text-align: center;
     line-height: 65px;
-    background: #55ce63;
+    background: #009efb;
     border-radius: 50%;
     font-size: 40px;
     height: 65px;
@@ -1407,7 +1407,7 @@ ul.chat-user-total li i.old-users {
 }
 
 .btn-primary-three {
-    border: 1px solid #55ce63;
+    border: 1px solid #009efb;
     border-radius: 25px;
     width: 100px;
     background: transparent;
@@ -1574,7 +1574,7 @@ ul.chat-user-total li i.old-users {
 }
 
 .dash-widget-info>span.widget-title2 {
-    background: #55ce63;
+    background: #009efb;
     color: #fff;
     padding: 5px 10px;
     border-radius: 4px;
