@@ -3,6 +3,14 @@ from flask import make_response
 import mysql.connector
 from mysql.connector import Error
 import updateUserData
+import random
+
+# DB connection imports
+import healthcaredb
+import hospitaldb
+import restaurantdb
+import insurancedb
+
 
 app = Flask(__name__)
 
@@ -25,7 +33,8 @@ def loginPage():
 
 @app.route("/dash")
 def dashboard():
-	return render_template('index.html', username = userData[1]+" "+userData[2])
+	return render_template('index.html', 
+							username = userData[1]+" "+userData[2])
 
 @app.route("/forgotPass")
 def forgotPass():
@@ -37,36 +46,86 @@ def register():
 
 @app.route("/calendar")
 def calendar():
-	return render_template('calendar.html', username = userData[1]+" "+userData[2])
+	return render_template('calendar.html',
+							username = userData[1]+" "+userData[2])
+
+@app.route("/hospital")
+def hospital():
+	hospitalCommand = ''' select * from Hospital '''
+	hospitaldb.hospitalCursor.execute(hospitalCommand)
+	hospitalData = hospitaldb.hospitalCursor.fetchall()
+	print("\n\n\n\n\n\n", hospitalData, "\n\n\n\n")
+	print(len(hospitalData), "\n\n\n\n\n\nn\n\n\\n\n\n\n\nn")
+	# nearbyRestData = random.sample(restaurantData, 5)
+	data = []
+	for d in hospitalData:
+		dataDict = {}
+		dataDict['name'] = d[1] + " Hospital"
+		dataDict['location'] = d[2] 
+		data.append(dataDict)
+	return render_template('hospital.html',
+							username = userData[1]+" "+userData[2],
+							data = data)
+
+@app.route("/coupons")
+def coupons():
+	return render_template('myCoupons.html',
+							username = userData[1]+" "+userData[2])
 
 @app.route("/dieticians")
 def dietician():
-	return render_template('dieticians.html', username = userData[1]+" "+userData[2])
+	dietdata = dieticianData()
+	
+	return render_template('dieticians.html', 
+							username = userData[1]+" "+userData[2],
+							data = dietdata )
 
 @app.route("/editprofile")
 def editProfile():
-	return render_template('edit-profile.html', username = userData[1]+" "+userData[2])
+	return render_template('edit-profile.html', 
+							username = userData[1]+" "+userData[2])
 
 @app.route("/entermeal")
 def enterMeal():
-	return render_template('enterMeal.html', username = userData[1]+" "+userData[2])
+	return render_template('enterMeal.html', 
+							username = userData[1]+" "+userData[2])
 
 @app.route("/foodReommendation")
 def foodRecommendation():
-	return render_template('foodReommendation.html', username = userData[1]+" "+userData[2])
+	return render_template('foodReommendation.html', 
+							username = userData[1]+" "+userData[2])
 
 @app.route("/mydietician")
 def myDietician():
-	return render_template('myDietician.html', username = userData[1]+" "+userData[2])
+	name, designation = getMyDieticianData()
+	return render_template('myDietician.html', 
+							username = userData[1]+" "+userData[2],
+							dieticianName = name,
+							designation = designation)
 
 @app.route("/nearbyRestraunts")
 def nearbyRestraunts():
-	return render_template('nearbyRestraunts.html', username = userData[1]+" "+userData[2])
+	restaurantCommand = ''' select * from RESTAURANTS '''
+	restaurantdb.restaurantCursor.execute(restaurantCommand)
+	restaurantData = restaurantdb.restaurantCursor.fetchall()
+	
+	nearbyRestData = random.sample(restaurantData, 5)
+	data = []
+	for d in nearbyRestData:
+		dataDict = {}
+		dataDict['name'] = d[1]
+		dataDict['location'] = d[2] 
+		dataDict['rating'] = d[3]
+		data.append(dataDict)
+
+	return render_template('nearbyRestraunts.html', 
+							username = userData[1]+" "+userData[2],
+							data = data)
 
 @app.route("/")
 def home():
 	return "hi"
-# @app.route("/index")
+
 
 @app.route('/index/getmoreinfo', methods=['GET', 'POST'])
 def indexInfo():
@@ -128,6 +187,40 @@ def update():
 		return jsonify(updated="True")
 		return render_template('edit-profile.html', username = userData[1]+" "+userData[2])
 
+
+def dieticianData():
+	global userData
+	
+	# Healthcare db contains dietician
+
+	dieticianCommand = '''select * from Dieticians'''
+	healthcaredb.healthCareCursor.execute(dieticianCommand)
+	dieticianData = healthcaredb.healthCareCursor.fetchall()
+	data = []
+	for i in range(len(dieticianData)):
+		dieticianDict = {}
+		dieticianDict['name'] = dieticianData[i][1]
+		dieticianDict['designation'] = dieticianData[i][3]
+		data.append(dieticianDict)
+	return data
+
+
+
+
+def getMyDieticianData():
+	dieticianCommand = '''  select * from User_Dietician where User_ID = %s'''
+
+	healthcaredb.healthCareCursor.execute(dieticianCommand, (userData[0],))
+	dieticianData = healthcaredb.healthCareCursor.fetchall()
+	mydieticianID = dieticianData[0][1]
+
+	dieticianCommand = '''  select * from Dieticians where Dietician_ID = %s'''
+	healthcaredb.healthCareCursor.execute(dieticianCommand, (mydieticianID,))
+	dieticianData = healthcaredb.healthCareCursor.fetchall()
+	dieticianData = list(dieticianData[0])
+
+	return dieticianData[1], dieticianData[3]
+	
 
 @app.after_request
 def add_headers(response):
