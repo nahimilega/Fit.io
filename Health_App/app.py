@@ -4,14 +4,17 @@ import mysql.connector
 from mysql.connector import Error
 import updateUserData
 import random
+
 # DB connection imports
 import healthcaredb
 import hospitaldb
 import restaurantdb
-import insurancedb
+#import insurancedb
 
-from getfoodRecommendation import get_food_recommendation, get_all_food, enter_new_meal
+from getfoodRecommendation import get_food_recommendation, get_all_food, enter_new_meal, makeConnection
 from functools import wraps
+
+import time, threading
 
 app = Flask(__name__)
 app.secret_key = 'ButterNaan'  # Change this!
@@ -32,8 +35,16 @@ connection = mysql.connector.connect(user='ug7yaayxgn0b773v', passwd='FRIWs9XAaP
 userCursor = connection.cursor(buffered=True)
 userData = []
 
+makeConnection(userCursor, connection)
 
+def fakeQuery():
 
+    userDataCommand = """select sleep from daily_record_1"""
+    userCursor.execute(userDataCommand)
+    some = userCursor.fetchall()
+    threading.Timer(220, fakeQuery).start()
+
+fakeQuery()
 
 def login_required(f):
     @wraps(f)
@@ -233,13 +244,10 @@ def update():
 
         connection ,userCursor = updateUserData.updateRecord(session['id'], firstName, lastName, DOB, address, contact, weight)
 
-
-        userDataCommand = """select * from users where U_ID = %s"""
-        userCursor.execute(userDataCommand, (session['id'],))
-        userData = userCursor.fetchall()
+        session['name']  = firstName + " " + lastName
 
         return jsonify(updated="True")
-        return render_template('edit-profile.html', username = session['name'])
+    return render_template('edit-profile.html', username = session['name'])
 
 
 def dieticianData():

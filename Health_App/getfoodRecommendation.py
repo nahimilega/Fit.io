@@ -9,21 +9,26 @@ import random
 # get similar dishes
 # select dish with highest similarity and lowest cal difference
 
-connection = ''
+#connection = ''
 cursor = ''
-def makeConnection():
+connection = ''
+def makeConnection(userCursor, USerconnection):
     global connection
     global cursor
     '''
+    global connection
     connection = mysql.connector.connect(user='archit', passwd='1',
                             host='localhost', database = "user"
                         )
 
-    '''
+
     connection = mysql.connector.connect(user='ug7yaayxgn0b773v', passwd='FRIWs9XAaP8PeGxjP9a2',
                     host='bfg8ldijk5ukggyco7j2-mysql.services.clever-cloud.com', database = "bfg8ldijk5ukggyco7j2"
                 )
     cursor = connection.cursor()
+    '''
+    cursor = userCursor
+    connection = USerconnection
 
 
 
@@ -73,7 +78,6 @@ def get_user_liking_dish(user_id,user_meal_calInt,meal_type,all_dishes, Usersimi
     return selected_dishes
 
 def get_potential_recommendation(user_id, meal_type):
-    makeConnection()
     user_meal_calInt = """SELECT AVG(cal_intake) AS average
                         FROM meals
                         WHERE meal_type = """ + str(meal_type) + " and meal_id in (select meal_id from daily_record_"+ str(user_id)+")"
@@ -103,8 +107,6 @@ def get_potential_recommendation(user_id, meal_type):
     potential_similar_dishes = removeDuplicate(potential_similar_dishes)
     potential_similar_dishes = sorted(potential_similar_dishes, key = lambda x: x[1],reverse = True)[:3]
     #print(potential_similar_dishes)
-    cursor.close()
-    connection.close()
     return selfDishes, potential_similar_dishes
 
 
@@ -113,7 +115,6 @@ def get_food_recommendation(user_id, meal_type):
     final_list = selfDishes[:2] + potential_similar_dishes
     final_list = removeDuplicate(list(final_list))
     final_list = final_list[:3]
-    makeConnection()
     dishes = []
 
     for dish in final_list:
@@ -126,21 +127,15 @@ def get_food_recommendation(user_id, meal_type):
             'cuisine':dish_info[3]
         })
     dishes[-1]['name'] += "  (Something New)*"
-    cursor.close()
-    connection.close()
 
     return dishes
 
 def get_all_food():
-    makeConnection()
     get_food = 'SELECT Name from Food'
     get_food = sanatizeList(executeQuery(get_food))
-    cursor.close()
-    connection.close()
     return get_food
 
 def enter_new_meal(result, user_id):
-    makeConnection()
     toady_date = datetime.date.today()
     find_if_there = "select date from daily_record_"+str(user_id)
     present_dates = sanatizeList(executeQuery(find_if_there))
@@ -157,9 +152,8 @@ def enter_new_meal(result, user_id):
 
         sql = "INSERT INTO "+"daily_record_"+str(user_id) +""" (date, steps, cal_intake, avg_heart_rate,sleep,meal_id)
                     VALUES {} """.format(to_ins)
-        cursor = connection.cursor()
+
         cursor.execute(sql)
-        cursor.close()
         connection.commit()
     else:
         sql = "SELECT meal_id from daily_record_{} where date='{}'".format(str(user_id), toady_date.strftime("%Y-%m-%d"))
@@ -174,7 +168,5 @@ def enter_new_meal(result, user_id):
     else:
         sql = '''UPDATE meals SET meal_items = '{}', cal_intake = '{}' where meal_id = '{}' and meal_type = '{}' '''.format(result['food'], result['cal'],meal_id, result['mealType'] )
 
-    cursor = connection.cursor()
     cursor.execute(sql)
-    cursor.close()
     connection.commit()
