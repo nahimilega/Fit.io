@@ -14,12 +14,19 @@ import insurancedb
 
 app = Flask(__name__)
 
+# connection = mysql.connector.connect(
+# 		host="localhost",
+# 		user="root",
+# 		passwd="scorpio",
+# 		database="testing"
+# 	)
 connection = mysql.connector.connect(
-		host="localhost",
-		user="root",
-		passwd="scorpio",
-		database="testing"
+		host="bfg8ldijk5ukggyco7j2-mysql.services.clever-cloud.com",
+		user="ug7yaayxgn0b773v",
+		passwd="FRIWs9XAaP8PeGxjP9a2",
+		database="bfg8ldijk5ukggyco7j2"
 	)
+
 userCursor = connection.cursor(buffered=True)
 userData = []
 userDailyData = []
@@ -122,9 +129,29 @@ def nearbyRestraunts():
 							username = userData[1]+" "+userData[2],
 							data = data)
 
-@app.route("/")
-def home():
-	return "hi"
+@app.route("/dieticianProfile")
+def dieticianProfile():
+	dieticianID = request.args.get('id')
+	
+	dieticianCommand = '''  select * from Dieticians where Dietician_ID = %s'''
+	healthcaredb.healthCareCursor.execute(dieticianCommand, (dieticianID,))
+	dieticianData = healthcaredb.healthCareCursor.fetchall()
+	dieticianData = list(dieticianData[0])
+	name = dieticianData[1].split()[1]
+	dataDict = {}
+	email = name+"@iiitd.ac.in"
+	print("\n\n\n\n\n\n\n\n\n\n\n",dieticianData,"\n\n\n\n\n\n\n\n\n\n\n")
+	dataDict['did'] = dieticianData[0]
+	dataDict['id'] = dieticianData[0]
+	dataDict['name'] = dieticianData[1]
+	dataDict['qualification'] = dieticianData[2]
+	dataDict['area_of_interest'] = dieticianData[3]
+	dataDict['experience'] = dieticianData[4]
+	dataDict['rating'] = dieticianData[5]
+	dataDict['email'] = email
+	return render_template('dieticianProfile.html', 
+							username = userData[1]+" "+userData[2],
+							data = dataDict)
 
 
 @app.route('/index/getmoreinfo', methods=['GET', 'POST'])
@@ -187,6 +214,20 @@ def update():
 		return jsonify(updated="True")
 		return render_template('edit-profile.html', username = userData[1]+" "+userData[2])
 
+@app.route('/dieticianProfile', methods=['GET', 'POST'])
+def updatemyDietician():
+	global userData
+	if request.method == 'POST':
+		dieiticianID = request.form['did']
+		uid = userData[0]
+		print("\n\n\n\nupdating\n\n\n\n\n", )
+		updateCommand = '''UPDATE User_Dieticians
+		                SET Dietician_ID = %s
+		                WHERE User_ID = %s '''
+		values = (dieiticianID, uid)
+		healthcaredb.healthCareCursor.execute(updateCommand, values)
+		healthcaredb.healthCareConnection.commit()
+	return "hello"
 
 def dieticianData():
 	global userData
@@ -201,6 +242,7 @@ def dieticianData():
 		dieticianDict = {}
 		dieticianDict['name'] = dieticianData[i][1]
 		dieticianDict['designation'] = dieticianData[i][3]
+		dieticianDict['id'] = dieticianData[i][0]
 		data.append(dieticianDict)
 	return data
 
@@ -208,7 +250,7 @@ def dieticianData():
 
 
 def getMyDieticianData():
-	dieticianCommand = '''  select * from User_Dietician where User_ID = %s'''
+	dieticianCommand = '''  select * from User_Dieticians where User_ID = %s'''
 
 	healthcaredb.healthCareCursor.execute(dieticianCommand, (userData[0],))
 	dieticianData = healthcaredb.healthCareCursor.fetchall()

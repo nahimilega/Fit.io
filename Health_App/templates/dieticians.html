@@ -18,7 +18,6 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.9.3/Chart.bundle.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.9.3/Chart.js"></script>
 </head>
-
 <body>
     <div class="main-wrapper">
         <div class="header">
@@ -33,8 +32,8 @@
                 <li class="nav-item dropdown has-arrow">
                     <a href="#" class="dropdown-toggle nav-link user-link" data-toggle="dropdown">
                         <span class="user-img">
-							<img class="rounded-circle" src="{{url_for('static', filename='assets/img/user.jpg')}}" width="24" alt="Admin">
-							<span class="status online"></span>
+                            <img class="rounded-circle" src="{{url_for('static', filename='assets/img/user.jpg')}}" width="24" alt="Admin">
+                            <span class="status online"></span>
                         </span>
                         <span id="loggedUser">{{ username }}</span>
                     </a>
@@ -96,7 +95,7 @@
                     <div class="col-md-4 col-sm-4  col-lg-3">
                         <div class="profile-widget">
                             <div class="doctor-img">
-                                <a class="avatar" href="#"><img alt="" src="{{ url_for('static', filename='assets/img/doctor-thumb-06.jpg') }}"></a>
+                                <a class="avatar" href="{{ url_for('dieticianProfile', id=link.id) }}"><img alt="" src="{{ url_for('static', filename='assets/img/doctor-thumb-06.jpg') }}"></a>
                             </div>
 
                             <h4 class="doctor-name text-ellipsis"><a href="#">{{ link.name }}</a></h4>
