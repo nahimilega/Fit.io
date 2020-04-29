@@ -97,36 +97,52 @@
                             <table class="table table-striped custom-table">
                                 <thead>
                                     <tr>
-                                        <th>#</th>
                                         <th>Food name</th>
                                         <th>Calories</th>
                                         <th>When?</th>
-                                        <th>Restaurant (You may choose)</th>
+                                        <th>Cuisine</th>
+                                        <th>Recepie (You may cook)</th>
                                     </tr>
                                 </thead>
                                 <tbody>
+                                    {% for meal in breakfast  %}
                                     <tr>
-                                        <td>1</td>
-                                        <td>Milk</td>
-                                        <td>42</td>
+                                        <td>{{ meal.name }}</td>
+                                        <td>{{ meal.cal }} </td>
                                         <td><span class="custom-badge status-orange">Morning</span></td>
-                                        <td>Zara Family Restaurant</td>
+                                        <td>{{ meal.cuisine }}</td>
+                                        <td>{{ meal.recipe }}</td>
 
                                     </tr>
+                                    {% endfor %}
+                                    {% for meal in lunch  %}
                                     <tr>
-                                        <td>2</td>
-                                        <td>Palak Paneer</td>
-                                        <td>370</td>
+                                        <td>{{ meal.name }}</td>
+                                        <td>{{ meal.cal }} </td>
                                         <td><span class="custom-badge status-green">Lunch</span></td>
-                                        <td>Haryana Sweet & Restaurant</td>
+                                        <td>{{ meal.cuisine }}</td>
+                                        <td>{{ meal.recipe }}</td>
                                     </tr>
+                                    {% endfor %}
+                                    {% for meal in snacks  %}
                                     <tr>
-                                        <td>3</td>
-                                        <td>Healthy Broccoli Slaw Fish Tacos</td>
-                                        <td>34</td>
-                                        <td><span class="custom-badge status-purple">Dinner</span></td>
-                                        <td>Zara Family Restaurant</td>
+                                        <td>{{ meal.name }}</td>
+                                        <td>{{ meal.cal }} </td>
+                                        <td><span class="custom-badge status-blue">Snacks</span></td>
+                                        <td>{{ meal.cuisine }}</td>
+                                        <td>{{ meal.recipe }}</td>
                                     </tr>
+                                    {% endfor %}
+
+                                    {% for meal in dinner  %}
+                                    <tr>
+                                        <td>{{ meal.name }}</td>
+                                        <td>{{ meal.cal }} </td>
+                                        <td><span class="custom-badge status-purple">Dinner</span></td>
+                                        <td>{{ meal.cuisine }}</td>
+                                        <td>{{ meal.recipe }}</td>
+                                    </tr>
+                                    {% endfor %}
                                 </tbody>
                             </table>
                         </div>

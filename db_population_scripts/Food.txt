@@ -2,6 +2,7 @@
 
 /* CREATE TABLE */
 CREATE TABLE Food(
+dish_id INT AUTO_INCREMENT PRIMARY KEY,
 Name VARCHAR(100),
 Calorie DOUBLE,
 Cuisine VARCHAR(100),
@@ -349,4 +350,10 @@ INSERT INTO Food(Name, Calorie, Cuisine, Recipe)
 VALUES
 (
 'Butter Chicken/ Murgh Makhani', 277, 'Indian', '"https://iiitd.ac.in/murgh "'
+);
+
+INSERT INTO Food(Name, Calorie, Cuisine, Recipe)
+VALUES
+(
+'Mc aloo Tikki', 280, 'Indian', '"https://iiitd.ac.in/tikki "'
 );

@@ -29,11 +29,9 @@ while temp<len(a):
 #print(records_to_insert)
 
 
-connection = mysql.connector.connect(host="localhost",
-    user="root",
-    passwd="scorpio",
-    database="testing"
-)
+connection = mysql.connector.connect(user='ug7yaayxgn0b773v', passwd='FRIWs9XAaP8PeGxjP9a2',
+                        host='bfg8ldijk5ukggyco7j2-mysql.services.clever-cloud.com', database = "bfg8ldijk5ukggyco7j2"
+                    )
 
 
 create_query =  """CREATE TABLE `users` (
