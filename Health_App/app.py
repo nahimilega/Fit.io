@@ -4,7 +4,6 @@ import mysql.connector
 from mysql.connector import Error
 import updateUserData
 import random
-
 # DB connection imports
 import healthcaredb
 import hospitaldb
