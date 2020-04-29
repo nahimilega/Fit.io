@@ -5,9 +5,14 @@ from mysql.connector import Error
 user_id = 1
 
 try:
+    '''
     connection = mysql.connector.connect(user='archit', passwd='1',
                             host='localhost', database = "user"
                         )
+    '''
+    connection = mysql.connector.connect(user='ug7yaayxgn0b773v', passwd='FRIWs9XAaP8PeGxjP9a2',
+                        host='bfg8ldijk5ukggyco7j2-mysql.services.clever-cloud.com', database = "bfg8ldijk5ukggyco7j2"
+                    )
 
     create_query_name = 'CREATE TABLE user_dishes'
 

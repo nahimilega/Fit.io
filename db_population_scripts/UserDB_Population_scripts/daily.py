@@ -44,10 +44,15 @@ try:
                               host='bfg8ldijk5ukggyco7j2-mysql.services.clever-cloud.com', database = "bfg8ldijk5ukggyco7j2"
                             )
     SELECT concat('DROP TABLE ',TABLE_NAME ,";") as data FROM INFORMATION_SCHEMA.TABLES  WHERE TABLE_NAME LIKE 'daily_record%';
-    '''
+
     connection = mysql.connector.connect(user='archit', passwd='1',
                               host='localhost', database = "user"
                             )
+    '''
+    connection = mysql.connector.connect(user='ug7yaayxgn0b773v', passwd='FRIWs9XAaP8PeGxjP9a2',
+                        host='bfg8ldijk5ukggyco7j2-mysql.services.clever-cloud.com', database = "bfg8ldijk5ukggyco7j2"
+                    )
+
 
     meal_id = 1
     for i in range(50):
@@ -60,7 +65,7 @@ try:
                 `cal_intake` SMALLINT(6) NOT NULL ,
                 `avg_heart_rate` FLOAT(10,5) NOT NULL ,
                 `sleep` SMALLINT(2) NOT NULL,
-                `meal_id` SMALLINT(10) NOT NULL,
+                `meal_id` INT NOT NULL,
                 PRIMARY KEY (`date`)
                 )
                 """

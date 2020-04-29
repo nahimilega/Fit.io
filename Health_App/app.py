@@ -10,13 +10,17 @@ app.secret_key = 'ButterNaan'  # Change this!
 
 
 
-
+'''
 connection = mysql.connector.connect(
         host="localhost",
         user="archit",
         passwd="1",
         database="user"
     )
+'''
+connection = mysql.connector.connect(user='ug7yaayxgn0b773v', passwd='FRIWs9XAaP8PeGxjP9a2',
+                    host='bfg8ldijk5ukggyco7j2-mysql.services.clever-cloud.com', database = "bfg8ldijk5ukggyco7j2"
+                )
 userCursor = connection.cursor(buffered=True)
 userData = []
 
@@ -126,7 +130,7 @@ def home():
 @app.route('/index/getmoreinfo', methods=['GET', 'POST'])
 def indexInfo():
     global userData
-    userid = userData[0]
+    userid = session['id']
     userDailyDataCommand = """select * from daily_record_"""+str(userid)
     userCursor.execute(userDailyDataCommand)
     userDailyData = userCursor.fetchall()
@@ -144,7 +148,6 @@ def index():
 
 @app.route('/login', methods=['GET', 'POST'])
 def login():
-    global userData
     message = None
     if request.method == 'POST':
         emailID = request.form['user']

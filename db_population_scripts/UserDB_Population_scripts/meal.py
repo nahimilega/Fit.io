@@ -14,23 +14,29 @@ try:
                               host='bfg8ldijk5ukggyco7j2-mysql.services.clever-cloud.com', database = "bfg8ldijk5ukggyco7j2"
                             )
     SELECT concat('DROP TABLE ',TABLE_NAME ,";") as data FROM INFORMATION_SCHEMA.TABLES  WHERE TABLE_NAME LIKE 'daily_record%';
-    '''
+
+
     connection = mysql.connector.connect(user='archit', passwd='1',
                               host='localhost', database = "user"
                             )
-
-
+    '''
+    connection = mysql.connector.connect(user='ug7yaayxgn0b773v', passwd='FRIWs9XAaP8PeGxjP9a2',
+                            host='bfg8ldijk5ukggyco7j2-mysql.services.clever-cloud.com', database = "bfg8ldijk5ukggyco7j2"
+                        )
 
     connection2 = mysql.connector.connect(user='up7wlunkxcruzlb2', passwd='mB9DEDRo2fTIQpua0pfD',
                               host='b6ozuvhquh16mibwxlqc-mysql.services.clever-cloud.com', database = "b6ozuvhquh16mibwxlqc"
                             )
+
+
+
     cursor2 = connection2.cursor()
     cursor2.execute("Select Calorie from Food")
     dish_info = cursor2.fetchall()
     print(dish_info)
     create_query = 'CREATE TABLE meals'
     create_data_type = """ (
-            `meal_id` SMALLINT(10) NOT NULL ,
+            `meal_id` INT NOT NULL ,
             `meal_type` SMALLINT(1) NOT NULL,
             `meal_items` VARCHAR(200),
             `cal_intake` SMALLINT(6) NOT NULL ,

@@ -10,11 +10,21 @@ import random
 # select dish with highest similarity and lowest cal difference
 
 connection = ''
+cursor = ''
 def makeConnection():
     global connection
+    global cursor
+    '''
     connection = mysql.connector.connect(user='archit', passwd='1',
                             host='localhost', database = "user"
                         )
+
+    '''
+    connection = mysql.connector.connect(user='ug7yaayxgn0b773v', passwd='FRIWs9XAaP8PeGxjP9a2',
+                    host='bfg8ldijk5ukggyco7j2-mysql.services.clever-cloud.com', database = "bfg8ldijk5ukggyco7j2"
+                )
+    cursor = connection.cursor()
+
 
 
 def sanatizeList(input_list):
@@ -29,29 +39,21 @@ def removeDuplicate(Input):
     return output
 
 def executeQuery(query):
-    cursor = connection.cursor()
+    global cursor
     cursor.execute(query)
-    temp =  cursor.fetchall()
-    cursor.close()
+    temp = cursor.fetchall()
     return temp
 
-def get_user_liking_dish(user_id,real_user_id,meal_type, Usersimilarity = 100):
+def get_user_liking_dish(user_id,user_meal_calInt,meal_type,all_dishes, Usersimilarity = 100 ):
+
     get_user_dishes = "select dish_id from user_dishes where U_ID = " + str(user_id)
     get_user_dishes = executeQuery(get_user_dishes)
-
-    user_meal_calInt = """SELECT AVG(cal_intake) AS average
-                        FROM meals
-                        WHERE meal_type = """ + str(meal_type) + " and meal_id in (select meal_id from daily_record_"+ str(real_user_id)+")"
-
-    user_meal_calInt = executeQuery(user_meal_calInt)[0][0]
 
     get_user_dishes = sanatizeList(get_user_dishes)
 
     t = tuple(get_user_dishes)
     similar_dishes = "SELECT * from dish_similarity where dish_1 IN {} OR dish_2 IN {}".format(t,t)
     similar_dishes = executeQuery(similar_dishes)
-    all_dishes = "SELECT Calorie from Food"
-    all_dishes = sanatizeList(executeQuery(all_dishes))
 
     all_potential_dishes = []
     similarity_score = []
@@ -68,12 +70,19 @@ def get_user_liking_dish(user_id,real_user_id,meal_type, Usersimilarity = 100):
 
     all_potential_dishes = removeDuplicate(all_potential_dishes)
     selected_dishes = sorted(all_potential_dishes, key = lambda x: x[1],reverse = True)[:3]
-
     return selected_dishes
 
 def get_potential_recommendation(user_id, meal_type):
     makeConnection()
-    selfDishes = get_user_liking_dish(user_id, user_id, meal_type)
+    user_meal_calInt = """SELECT AVG(cal_intake) AS average
+                        FROM meals
+                        WHERE meal_type = """ + str(meal_type) + " and meal_id in (select meal_id from daily_record_"+ str(user_id)+")"
+    user_meal_calInt = executeQuery(user_meal_calInt)[0][0]
+
+    all_dishes = "SELECT Calorie from Food"
+    all_dishes = sanatizeList(executeQuery(all_dishes))
+
+    selfDishes = get_user_liking_dish(user_id, user_meal_calInt, meal_type,all_dishes)
     #print(selfDishes)
 
     get_similar_user = "select * from user_similarity where (user_1 = {} OR user_2 = {}) AND similarity > 50.0 ".format(user_id,user_id)
@@ -88,12 +97,13 @@ def get_potential_recommendation(user_id, meal_type):
             similar_user.append((userRow[0],userRow[2]))
 
     potential_similar_dishes = []
-    for user in similar_user:
-        potential_similar_dishes.extend(get_user_liking_dish(user[0], user_id,meal_type,user[1]))
+    for user in similar_user[:5]:
+        potential_similar_dishes.extend(get_user_liking_dish(user[0], user_meal_calInt,meal_type,all_dishes,user[1]))
 
     potential_similar_dishes = removeDuplicate(potential_similar_dishes)
     potential_similar_dishes = sorted(potential_similar_dishes, key = lambda x: x[1],reverse = True)[:3]
     #print(potential_similar_dishes)
+    cursor.close()
     connection.close()
     return selfDishes, potential_similar_dishes
 
@@ -103,9 +113,9 @@ def get_food_recommendation(user_id, meal_type):
     final_list = selfDishes[:2] + potential_similar_dishes
     final_list = removeDuplicate(list(final_list))
     final_list = final_list[:3]
-
     makeConnection()
     dishes = []
+
     for dish in final_list:
         dish_info = 'SELECT * from Food where dish_id = ' + str(dish[0])
         dish_info = executeQuery(dish_info)[0]
@@ -115,8 +125,8 @@ def get_food_recommendation(user_id, meal_type):
             'recipe': dish_info[4],
             'cuisine':dish_info[3]
         })
-
     dishes[-1]['name'] += "  (Something New)*"
+    cursor.close()
     connection.close()
 
     return dishes
@@ -125,6 +135,7 @@ def get_all_food():
     makeConnection()
     get_food = 'SELECT Name from Food'
     get_food = sanatizeList(executeQuery(get_food))
+    cursor.close()
     connection.close()
     return get_food
 
