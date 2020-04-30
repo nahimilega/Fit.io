@@ -1,0 +1,215 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=0">
+    <link rel="shortcut icon" type="image/x-icon" href="{{ url_for('static', filename='assets/img/favicon.ico') }}">
+    <title>Health is Wealth</title>
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.2.1/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="{{ url_for('static', filename='assets/css/style.css') }}">
+
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jQuery-slimScroll/1.3.8/jquery.slimscroll.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.9.3/Chart.bundle.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.9.3/Chart.js"></script>
+    <link href="https://cdn.jsdelivr.net/npm/select2@4.0.13/dist/css/select2.min.css" rel="stylesheet" />
+    <script src="https://cdn.jsdelivr.net/npm/select2@4.0.13/dist/js/select2.min.js"></script>
+
+    <link rel="stylesheet" href="{{url_for('static', filename='node_modules/jquery-datetimepicker/jquery.datetimepicker.css')}}"/>
+    <script type="text/javascript" src="{{url_for('static', filename='node_modules/jquery-datetimepicker/jquery.datetimepicker.js')}}"></script>
+
+
+</head>
+
+<body>
+    <div class="main-wrapper">
+        <div class="header">
+            <div class="header-left">
+                <a href="{{ url_for('dashboard') }}" class="logo">
+                    <img src="{{url_for('static', filename='assets/img/logo.png')}}" width="35" height="35" alt=""> <span>Health is Wealth</span>
+                </a>
+            </div>
+            <a id="toggle_btn" href="javascript:void(0);"><i class="fa fa-bars"></i></a>
+            <a id="mobile_btn" class="mobile_btn float-left" href="#sidebar"><i class="fa fa-bars"></i></a>
+            <ul class="nav user-menu float-right">
+                <li class="nav-item dropdown has-arrow">
+                    <a href="#" class="dropdown-toggle nav-link user-link" data-toggle="dropdown">
+                        <span class="user-img">
+							<img class="rounded-circle" src="{{url_for('static', filename='assets/img/user.jpg')}}" width="24" alt="Admin">
+							<span class="status online"></span>
+                        </span>
+                        <span id="loggedUser">{{ username }}</span>
+                    </a>
+                    <div class="dropdown-menu">
+                        <a class="dropdown-item" href="{{ url_for('editProfile') }}">Edit Profile</a>
+                        <a class="dropdown-item" href="{{ url_for('loginPage') }}">Logout</a>
+                    </div>
+                </li>
+            </ul>
+        </div>
+        <div class="sidebar" id="sidebar">
+            <div class="sidebar-inner slimscroll">
+                <div id="sidebar-menu" class="sidebar-menu">
+                    <ul>
+                        <li class="menu-title">Main</li>
+                        <li class="active">
+                            <a href="{{ url_for('dashboard') }}"><i class="fa fa-dashboard"></i> <span>Dashboard</span></a>
+                        </li>
+
+                        <li class="submenu">
+                            <a href="#"><i class="fa fa-user-md"></i> <span>Dietician</span> <span class="menu-arrow"></span></a>
+                            <ul style="display: none;">
+                                <li><a href="{{ url_for('dietician') }}">All Dietician</a></li>
+                                <li><a href="{{ url_for('myDietician') }}">My Dietician </a></li>
+                            </ul>
+                        </li>
+                        <li>
+                            <a href="{{ url_for('hospital') }}"><i class="fa fa-hospital-o"></i> <span>Hospital</span></a>
+                        </li>
+                        <li>
+                            <a href="{{ url_for('foodRecommendation') }}"><i class="fa fa-cutlery"></i> <span>Food Recommendation</span></a>
+                        </li>
+                        <li>
+                            <a href="{{ url_for('nearbyRestraunts') }}"><i class="fa fa-cutlery"></i> <span>Nearby Restaurant</span></a>
+                        </li>
+                        <li>
+                            <a href="{{ url_for('enterMeal') }}"><i class="fa fa-cutlery"></i> <span>Enter your meal</span></a>
+                        </li>
+                        <li>
+                            <a href="{{ url_for('coupons') }}"><i class="fa fa-tag fa-lg"></i> <span>My Coupons</span></a>
+                        </li>
+
+                        <li>
+                            <a href="{{ url_for('calendar') }}"><i class="fa fa-calendar"></i> <span>Planout My Schedule</span></a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+        <div class="page-wrapper">
+            <div class="content">
+                <div class="row">
+                    <div class="col-sm-12">
+                        <h4 class="page-title">Edit Profile</h4>
+                    </div>
+                </div>
+                <form>
+                    <div class="card-box">
+                        <h3 class="card-title">Basic Informations</h3>
+                        <div class="row">
+                            <div class="col-md-12">
+                                <div class="profile-img-wrap">
+                                    <img class="inline-block" src="assets/img/user.jpg" alt="user">
+                                </div>
+                                <div class="profile-basic">
+                                    <div class="row">
+                                        <div class="col-md-6">
+                                            <div class="form-group form-focus">
+                                                <label class="focus-label" style="font-size:x-small;">First Name</label>
+                                                <input id="firstName" type="text" class="form-control floating">
+                                            </div>
+                                        </div>
+                                        <div class="col-md-6">
+                                            <div class="form-group form-focus">
+                                                <label class="focus-label" style="font-size:x-small;">Last Name</label>
+                                                <input id="lastName" type="text" class="form-control floating" >
+                                            </div>
+                                        </div>
+                                        <div class="col-md-6">
+                                            <div class="form-group form-focus">
+                                                <label class="focus-label" style="font-size:x-small;">Birth Date(MM/DD/YYYY)</label>
+                                                <div class="cal-icon">
+                                                    <input id="DOB" class="form-control floating datetimepicker" type="text">
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="col-md-6">
+                                            <div class="form-group form-focus select-focus">
+                                                <label class="focus-label" style="font-size:x-small;">Gendar</label>
+                                                <select class="select form-control floating">
+                                                    <option value="male selected">Male</option>
+                                                    <option value="female">Female</option>
+                                                </select>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="card-box">
+                        <h3 class="card-title">Contact Informations</h3>
+                        <div class="row">
+                            <div class="col-md-12">
+                                <div class="form-group form-focus">
+                                    <label class="focus-label" style="font-size:x-small;">Address</label>
+                                    <input id="address"type="text" class="form-control floating">
+                                </div>
+                            </div>
+                            <div class="col-md-6">
+                                <div class="form-group form-focus">
+                                    <label class="focus-label" style="font-size:x-small;">State</label>
+                                    <input id="state"type="text" class="form-control floating">
+                                </div>
+                            </div>
+                            <div class="col-md-6">
+                                <div class="form-group form-focus">
+                                    <label class="focus-label" style="font-size:x-small;">Country</label>
+                                    <input id="country" type="text" class="form-control floating" >
+                                </div>
+                            </div>
+                            <div class="col-md-6">
+                                <div class="form-group form-focus">
+                                    <label class="focus-label" style="font-size:x-small;">Pin Code</label>
+                                    <input id="pincode" type="text" class="form-control floating" >
+                                </div>
+                            </div>
+                            <div class="col-md-6">
+                                <div class="form-group form-focus">
+                                    <label class="focus-label" style="font-size:x-small;">Phone Number</label>
+                                    <input id="contact" type="text" class="form-control floating">
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="card-box">
+                        <h3 class="card-title">Health</h3>
+                        <div class="row">
+                            <div class="col-md-6">
+                                <div class="form-group form-focus">
+                                    <label class="focus-label" style="font-size:x-small;">Weight</label>
+                                    <input id="weight" type="text" class="form-control floating">
+                                </div>
+                            </div>
+                            <div class="col-md-6">
+                                <div class="form-group form-focus">
+                                    <label class="focus-label" style="font-size:x-small;">Height</label>
+                                    <input type="text" class="form-control floating">
+                                </div>
+                            </div>
+                            <div class="col-md-6">
+                                <div class="form-group form-focus">
+                                    <label class="focus-label" style="font-size:x-small;">Your health Goal</label>
+                                    <input type="text" class="form-control floating">
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="text-center m-t-20">
+                        <button id="save_btn" class="btn btn-primary submit-btn" type="button">Save</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+    <script type="text/javascript" src="{{ url_for('static', filename='assets/js/app.js') }}"></script>
+    <script type="text/javascript" src="{{ url_for('static', filename='backend/js/editProfile.js') }}"></script>
+</body>
+
+</html>

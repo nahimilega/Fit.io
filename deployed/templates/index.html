@@ -1,0 +1,215 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta content="text/html;charset=utf-8" http-equiv="Content-Type">
+    <meta content="utf-8" http-equiv="encoding">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=0">
+    <link rel="shortcut icon" type="image/x-icon" href="{{ url_for('static', filename='assets/img/favicon.ico') }}">
+    <title>Health is Wealth</title>
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.2.1/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="{{ url_for('static', filename='assets/css/style.css') }}">
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jQuery-slimScroll/1.3.8/jquery.slimscroll.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.9.3/Chart.bundle.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.9.3/Chart.js"></script>
+</head>
+
+<body>
+    <div class="main-wrapper">
+        <div class="header">
+            <div class="header-left">
+                <a href="{{ url_for('dashboard') }}" class="logo">
+                    <img src="{{url_for('static', filename='assets/img/logo.png')}}" width="35" height="35" alt=""> <span>Health is Wealth</span>
+                </a>
+            </div>
+            <a id="toggle_btn" href="javascript:void(0);"><i class="fa fa-bars"></i></a>
+            <a id="mobile_btn" class="mobile_btn float-left" href="#sidebar"><i class="fa fa-bars"></i></a>
+            <ul class="nav user-menu float-right">
+                <li class="nav-item dropdown has-arrow">
+                    <a href="#" class="dropdown-toggle nav-link user-link" data-toggle="dropdown">
+                        <span class="user-img">
+							<img class="rounded-circle" src="{{url_for('static', filename='assets/img/user.jpg')}}" width="24" alt="Admin">
+							<span class="status online"></span>
+                        </span>
+                        <span id="loggedUser">{{ username }}</span>
+                    </a>
+                    <div class="dropdown-menu">
+                        <a class="dropdown-item" href="{{ url_for('editProfile') }}">Edit Profile</a>
+                        <a class="dropdown-item" href="{{ url_for('loginPage') }}">Logout</a>
+                    </div>
+                </li>
+            </ul>
+        </div>
+        <div class="sidebar" id="sidebar">
+            <div class="sidebar-inner slimscroll">
+                <div id="sidebar-menu" class="sidebar-menu">
+                    <ul>
+                        <li class="menu-title">Main</li>
+                        <li class="active">
+                            <a href="{{ url_for('dashboard') }}"><i class="fa fa-dashboard"></i> <span>Dashboard</span></a>
+                        </li>
+
+                        <li class="submenu">
+                            <a href="#"><i class="fa fa-user-md"></i> <span>Dietician</span> <span class="menu-arrow"></span></a>
+                            <ul style="display: none;">
+                                <li><a href="{{ url_for('dietician') }}">All Dietician</a></li>
+                                <li><a href="{{ url_for('myDietician') }}">My Dietician </a></li>
+                            </ul>
+                        </li>
+                        <li>
+                            <a href="{{ url_for('hospital') }}"><i class="fa fa-hospital-o"></i> <span>Hospital</span></a>
+                        </li>
+                        <li>
+                            <a href="{{ url_for('foodRecommendation') }}"><i class="fa fa-cutlery"></i> <span>Food Recommendation</span></a>
+                        </li>
+                        <li>
+                            <a href="{{ url_for('nearbyRestraunts') }}"><i class="fa fa-cutlery"></i> <span>Nearby Restaurant</span></a>
+                        </li>
+                        <li>
+                            <a href="{{ url_for('enterMeal') }}"><i class="fa fa-cutlery"></i> <span>Enter your meal</span></a>
+                        </li>
+                        <li>
+                            <a href="{{ url_for('coupons') }}"><i class="fa fa-tag fa-lg"></i> <span>My Coupons</span></a>
+                        </li>
+
+                        <li>
+                            <a href="{{ url_for('calendar') }}"><i class="fa fa-calendar"></i> <span>Planout My Schedule</span></a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+        <div class="page-wrapper">
+            <div class="content">
+                <div class="row">
+                    <div class="col-md-6 col-sm-6 col-lg-6 col-xl-3">
+                        <div class="dash-widget">
+                            <span class="dash-widget-bg1"><i class="fa fa-male" aria-hidden="true"></i></span>
+                            <div class="dash-widget-info text-right">
+                                <h3 id="weight">82</h3>
+                                <span class="widget-title1">Sleep <i class="fa fa-check" aria-hidden="true"></i></span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-6 col-sm-6 col-lg-6 col-xl-3">
+                        <div class="dash-widget">
+                            <span class="dash-widget-bg2"><i class="fa fa-user-o"></i></span>
+                            <div class="dash-widget-info text-right">
+                                <h3 id="stepCount">4348 </h3>
+                                <span class="widget-title2">Today's Steps Count<i class="fa fa-check" aria-hidden="true"></i></span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-6 col-sm-6 col-lg-6 col-xl-3">
+                        <div class="dash-widget">
+                            <span class="dash-widget-bg3"><i class="fa fa-bolt" aria-hidden="true"></i></span>
+                            <div class="dash-widget-info text-right">
+                                <h3 id="calorie">2510</h3>
+                                <span class="widget-title3">Calories <i class="fa fa-check" aria-hidden="true"></i></span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-6 col-sm-6 col-lg-6 col-xl-3">
+                        <div class="dash-widget">
+                            <span class="dash-widget-bg4"><i class="fa fa-heartbeat" aria-hidden="true"></i></span>
+                            <div class="dash-widget-info text-right">
+                                <h3 id="heartRate">75</h3>
+                                <span class="widget-title4">Heart rate <i class="fa fa-check" aria-hidden="true"></i></span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-12 col-md-6 col-lg-6 col-xl-6">
+                        <div class="card">
+                            <div class="card-body">
+                                <div class="chart-title">
+                                    <h4>Total Steps</h4>
+                                    <div class="float-right">
+                                        <ul class="chat-user-total">
+                                            <li><i class="fa fa-circle current-users" aria-hidden="true"></i>No. of Steps</li>
+                                        </ul>
+                                    </div>
+                                </div>
+                                <canvas id="bargraph1"></canvas>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-12 col-md-6 col-lg-6 col-xl-6">
+                        <div class="card">
+                            <div class="card-body">
+                                <div class="chart-title">
+                                    <h4>Calories</h4>
+                                    <div class="float-right">
+                                        <ul class="chat-user-total">
+                                            <li><i class="fa fa-circle current-users" aria-hidden="true"></i>Calories Consumed</li>
+                                            <li><i class="fa fa-circle old-users" aria-hidden="true"></i>Calories Burnt</li>
+                                        </ul>
+                                    </div>
+                                </div>
+                                <canvas id="bargraph"></canvas>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-12 col-md-6 col-lg-8 col-xl-12">
+                        <div class="card-box">
+                            <div class="card-block">
+                                <h4 class="card-title">Suggested Workouts for You</h4>
+                                <div class="table-responsive">
+                                    <table class="table mb-0">
+                                        <thead>
+                                            <tr>
+                                                <th>#</th>
+                                                <th>Workouts</th>
+
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                            <tr>
+                                                <td>1</td>
+                                                <td>Walking</td>
+                                            </tr>
+                                            <tr>
+                                                <td>2</td>
+                                                <td>Push-ups</td>
+                                            </tr>
+                                            <tr>
+                                                <td>3</td>
+                                                <td>Lunges</td>
+                                            </tr>
+                                            <tr>
+                                                <td>4</td>
+                                                <td>Squats</td>
+                                            </tr>
+                                            <tr>
+                                                <td>5</td>
+                                                <td>bent-over Row</td>
+                                            </tr>
+                                        </tbody>
+                                    </table>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <script type="text/javascript" src="{{ url_for('static', filename='backend/js/index.js') }}"></script>
+    <script type="text/javascript" src="{{ url_for('static', filename='assets/js/chart.js') }}"></script>
+    <script type="text/javascript" src="{{ url_for('static', filename='assets/js/app.js') }}"></script>
+
+
+</body>
+
+
+
+</html>
