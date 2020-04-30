@@ -13,15 +13,13 @@ while temp<len(a):
 
 
     idd =  int(a[temp][:-1])
-    fn =  a[temp+1][:-1]
-    ln =  a[temp+2][:-1]
+    name =  a[temp+1][:-1] + " " + a[temp+2][:-1]
     em =  a[temp+3][:-1]
     db =  datetime.strptime(a[temp+4][:-1],"%m/%d/%Y, %H:%M:%S")
     dj =  datetime.strptime(a[temp+5][:-1], "%m/%d/%Y, %H:%M:%S")
     add =  a[temp+6][:-1]
-    con =  a[temp+7][:-1]
 
-    local = (idd,fn,ln,em,db,dj,add,con)
+    local = (idd,name,em,db,dj,add)
     print(idd)
     records_to_insert.append(local)
     temp += 8
@@ -29,29 +27,28 @@ while temp<len(a):
 #print(records_to_insert)
 
 
-connection = mysql.connector.connect(user='ug7yaayxgn0b773v', passwd='FRIWs9XAaP8PeGxjP9a2',
-                        host='bfg8ldijk5ukggyco7j2-mysql.services.clever-cloud.com', database = "bfg8ldijk5ukggyco7j2"
-                    )
+connection = mysql.connector.connect(user='umriv9lylxg8od0q', passwd='7bGDK5TschAyYReuDDyn',
+                    host='b9uofulr45d6ajt9vnh1-mysql.services.clever-cloud.com', database = "b9uofulr45d6ajt9vnh1"
+                )
 
 
-create_query =  """CREATE TABLE `users` (
-	`U_ID` INT(11) NOT NULL AUTO_INCREMENT,
-	`first_name` VARCHAR(50) NOT NULL COLLATE 'utf8_unicode_ci',
-	`last_name` VARCHAR(50) NOT NULL COLLATE 'utf8_unicode_ci',
+create_query =  """CREATE TABLE `user` (
+	`id` INT(11) NOT NULL AUTO_INCREMENT,
+	`name` VARCHAR(50) NOT NULL COLLATE 'utf8_unicode_ci',
 	`email` VARCHAR(100) NOT NULL COLLATE 'utf8_unicode_ci',
-	`date_of_birth` DATE NOT NULL,
-	`added_on` TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP,
-        `address` VARCHAR(10000) NOT NULL COLLATE 'utf8_unicode_ci',
-        `contact` VARCHAR(20) NOT NULL COLLATE 'utf8_unicode_ci',
-	PRIMARY KEY (`U_ID`),
+	`dob` DATE NOT NULL,
+	`created_at` TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP,
+    `address` VARCHAR(10000) NOT NULL COLLATE 'utf8_unicode_ci',
+	PRIMARY KEY (`id`),
 	UNIQUE INDEX `email` (`email`)
 )"""
+
 cursor = connection.cursor()
 cursor.execute(create_query)
 
 
-mySql_insert_query = """INSERT INTO users (U_ID,first_name,last_name,email,date_of_birth,added_on,address,contact)
-                            VALUES (%s, %s, %s, %s, %s, %s, %s, %s) """
+mySql_insert_query = """INSERT INTO user (id,name,email,dob,created_at,address)
+                            VALUES (%s, %s, %s, %s, %s, %s) """
 
 cursor = connection.cursor()
 

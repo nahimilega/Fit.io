@@ -17,9 +17,9 @@ try:
                               host='localhost', database = "user"
                             )
     '''
-    connection = mysql.connector.connect(user='ug7yaayxgn0b773v', passwd='FRIWs9XAaP8PeGxjP9a2',
-                            host='bfg8ldijk5ukggyco7j2-mysql.services.clever-cloud.com', database = "bfg8ldijk5ukggyco7j2"
-                        )
+    connection = mysql.connector.connect(user='umriv9lylxg8od0q', passwd='7bGDK5TschAyYReuDDyn',
+                        host='b9uofulr45d6ajt9vnh1-mysql.services.clever-cloud.com', database = "b9uofulr45d6ajt9vnh1"
+                    )
 
     create_query = 'CREATE TABLE user_similarity'
     create_data_type = """ (

@@ -1,6 +1,6 @@
 import mysql.connector
 from mysql.connector import Error
-
+import random
 
 user_id = 1
 
@@ -10,16 +10,16 @@ try:
                             host='localhost', database = "user"
                         )
     '''
-    connection = mysql.connector.connect(user='ug7yaayxgn0b773v', passwd='FRIWs9XAaP8PeGxjP9a2',
-                        host='bfg8ldijk5ukggyco7j2-mysql.services.clever-cloud.com', database = "bfg8ldijk5ukggyco7j2"
+    connection = mysql.connector.connect(user='umriv9lylxg8od0q', passwd='7bGDK5TschAyYReuDDyn',
+                        host='b9uofulr45d6ajt9vnh1-mysql.services.clever-cloud.com', database = "b9uofulr45d6ajt9vnh1"
                     )
 
-    create_query_name = 'CREATE TABLE user_dishes'
+    create_query_name = 'CREATE TABLE eaten_food'
 
     create_data_type = """ (
-            `U_ID` INT(11) NOT NULL ,
-            `dish_id` SMALLINT(7) NOT NULL,
-            PRIMARY KEY (`U_ID`,`dish_id`)
+            `uid` INT(11) NOT NULL ,
+            `fid` SMALLINT(10) NOT NULL,
+            PRIMARY KEY (`uid`,`fid`)
             )
             """
     create_query = create_query_name + create_data_type
@@ -31,21 +31,13 @@ try:
     for i in range(50):
         user_id = i+1
 
-        get_meal_id = "select meal_id from daily_record_" + str(user_id)
-
-        cursor = connection.cursor()
-        cursor.execute(get_meal_id)
-        meal_id_list = cursor.fetchall()
-
-
 
         to_insert = []
+        for meal in random.sample(range(1, 50), 9):
+            to_insert.append((user_id,meal))
 
-        for meal in meal_id_list:
-            to_insert.append((user_id,meal[0]))
 
-
-        mySql_insert_query = """INSERT INTO user_dishes  (U_ID, dish_id)
+        mySql_insert_query = """INSERT INTO eaten_food  (uid, fid)
                                 VALUES (%s, %s) """
 
         cursor = connection.cursor()
